@@ -1,0 +1,403 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DCEE37B31D6DEBF700EC6907 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE37B21D6DEBF700EC6907 /* AppDelegate.swift */; };
+		DCEE37B51D6DEBF700EC6907 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE37B41D6DEBF700EC6907 /* ViewController.swift */; };
+		DCEE37B81D6DEBF700EC6907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCEE37B61D6DEBF700EC6907 /* Main.storyboard */; };
+		DCEE37BA1D6DEBF700EC6907 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCEE37B91D6DEBF700EC6907 /* Assets.xcassets */; };
+		DCEE37BD1D6DEBF700EC6907 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCEE37BB1D6DEBF700EC6907 /* LaunchScreen.storyboard */; };
+		DCEE37C81D6DEBF700EC6907 /* SimplyCastsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE37C71D6DEBF700EC6907 /* SimplyCastsTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DCEE37C41D6DEBF700EC6907 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DCEE37A71D6DEBF600EC6907 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DCEE37AE1D6DEBF600EC6907;
+			remoteInfo = SimplyCasts;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DCEE37AF1D6DEBF600EC6907 /* SimplyCasts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplyCasts.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCEE37B21D6DEBF700EC6907 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DCEE37B41D6DEBF700EC6907 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DCEE37B71D6DEBF700EC6907 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DCEE37B91D6DEBF700EC6907 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DCEE37BC1D6DEBF700EC6907 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DCEE37BE1D6DEBF700EC6907 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCEE37C31D6DEBF700EC6907 /* SimplyCastsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimplyCastsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCEE37C71D6DEBF700EC6907 /* SimplyCastsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplyCastsTests.swift; sourceTree = "<group>"; };
+		DCEE37C91D6DEBF700EC6907 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DCEE37AC1D6DEBF600EC6907 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCEE37C01D6DEBF700EC6907 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DCEE37A61D6DEBF600EC6907 = {
+			isa = PBXGroup;
+			children = (
+				DCEE37B11D6DEBF600EC6907 /* SimplyCasts */,
+				DCEE37C61D6DEBF700EC6907 /* SimplyCastsTests */,
+				DCEE37B01D6DEBF600EC6907 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DCEE37B01D6DEBF600EC6907 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DCEE37AF1D6DEBF600EC6907 /* SimplyCasts.app */,
+				DCEE37C31D6DEBF700EC6907 /* SimplyCastsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DCEE37B11D6DEBF600EC6907 /* SimplyCasts */ = {
+			isa = PBXGroup;
+			children = (
+				DCEE37B21D6DEBF700EC6907 /* AppDelegate.swift */,
+				DCEE37B41D6DEBF700EC6907 /* ViewController.swift */,
+				DCEE37B61D6DEBF700EC6907 /* Main.storyboard */,
+				DCEE37B91D6DEBF700EC6907 /* Assets.xcassets */,
+				DCEE37BB1D6DEBF700EC6907 /* LaunchScreen.storyboard */,
+				DCEE37BE1D6DEBF700EC6907 /* Info.plist */,
+			);
+			path = SimplyCasts;
+			sourceTree = "<group>";
+		};
+		DCEE37C61D6DEBF700EC6907 /* SimplyCastsTests */ = {
+			isa = PBXGroup;
+			children = (
+				DCEE37C71D6DEBF700EC6907 /* SimplyCastsTests.swift */,
+				DCEE37C91D6DEBF700EC6907 /* Info.plist */,
+			);
+			path = SimplyCastsTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DCEE37AE1D6DEBF600EC6907 /* SimplyCasts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCEE37CC1D6DEBF700EC6907 /* Build configuration list for PBXNativeTarget "SimplyCasts" */;
+			buildPhases = (
+				DCEE37AB1D6DEBF600EC6907 /* Sources */,
+				DCEE37AC1D6DEBF600EC6907 /* Frameworks */,
+				DCEE37AD1D6DEBF600EC6907 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimplyCasts;
+			productName = SimplyCasts;
+			productReference = DCEE37AF1D6DEBF600EC6907 /* SimplyCasts.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DCEE37C21D6DEBF700EC6907 /* SimplyCastsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCEE37CF1D6DEBF700EC6907 /* Build configuration list for PBXNativeTarget "SimplyCastsTests" */;
+			buildPhases = (
+				DCEE37BF1D6DEBF700EC6907 /* Sources */,
+				DCEE37C01D6DEBF700EC6907 /* Frameworks */,
+				DCEE37C11D6DEBF700EC6907 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DCEE37C51D6DEBF700EC6907 /* PBXTargetDependency */,
+			);
+			name = SimplyCastsTests;
+			productName = SimplyCastsTests;
+			productReference = DCEE37C31D6DEBF700EC6907 /* SimplyCastsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DCEE37A71D6DEBF600EC6907 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Felix Chen";
+				TargetAttributes = {
+					DCEE37AE1D6DEBF600EC6907 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					DCEE37C21D6DEBF700EC6907 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = DCEE37AE1D6DEBF600EC6907;
+					};
+				};
+			};
+			buildConfigurationList = DCEE37AA1D6DEBF600EC6907 /* Build configuration list for PBXProject "SimplyCasts" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DCEE37A61D6DEBF600EC6907;
+			productRefGroup = DCEE37B01D6DEBF600EC6907 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DCEE37AE1D6DEBF600EC6907 /* SimplyCasts */,
+				DCEE37C21D6DEBF700EC6907 /* SimplyCastsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DCEE37AD1D6DEBF600EC6907 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCEE37BD1D6DEBF700EC6907 /* LaunchScreen.storyboard in Resources */,
+				DCEE37BA1D6DEBF700EC6907 /* Assets.xcassets in Resources */,
+				DCEE37B81D6DEBF700EC6907 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCEE37C11D6DEBF700EC6907 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DCEE37AB1D6DEBF600EC6907 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCEE37B51D6DEBF700EC6907 /* ViewController.swift in Sources */,
+				DCEE37B31D6DEBF700EC6907 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCEE37BF1D6DEBF700EC6907 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCEE37C81D6DEBF700EC6907 /* SimplyCastsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DCEE37C51D6DEBF700EC6907 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DCEE37AE1D6DEBF600EC6907 /* SimplyCasts */;
+			targetProxy = DCEE37C41D6DEBF700EC6907 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DCEE37B61D6DEBF700EC6907 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCEE37B71D6DEBF700EC6907 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DCEE37BB1D6DEBF700EC6907 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCEE37BC1D6DEBF700EC6907 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DCEE37CA1D6DEBF700EC6907 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DCEE37CB1D6DEBF700EC6907 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DCEE37CD1D6DEBF700EC6907 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SimplyCasts/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = info.felixchen.SimplyCasts;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DCEE37CE1D6DEBF700EC6907 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SimplyCasts/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = info.felixchen.SimplyCasts;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DCEE37D01D6DEBF700EC6907 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SimplyCastsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = info.felixchen.SimplyCastsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimplyCasts.app/SimplyCasts";
+			};
+			name = Debug;
+		};
+		DCEE37D11D6DEBF700EC6907 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SimplyCastsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = info.felixchen.SimplyCastsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimplyCasts.app/SimplyCasts";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DCEE37AA1D6DEBF600EC6907 /* Build configuration list for PBXProject "SimplyCasts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCEE37CA1D6DEBF700EC6907 /* Debug */,
+				DCEE37CB1D6DEBF700EC6907 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCEE37CC1D6DEBF700EC6907 /* Build configuration list for PBXNativeTarget "SimplyCasts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCEE37CD1D6DEBF700EC6907 /* Debug */,
+				DCEE37CE1D6DEBF700EC6907 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DCEE37CF1D6DEBF700EC6907 /* Build configuration list for PBXNativeTarget "SimplyCastsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCEE37D01D6DEBF700EC6907 /* Debug */,
+				DCEE37D11D6DEBF700EC6907 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DCEE37A71D6DEBF600EC6907 /* Project object */;
+}
