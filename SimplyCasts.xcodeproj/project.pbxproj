@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D0F68C1953A6EEE9F523475 /* Pods_SimplyCasts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55583BC34D667DA042DB3CA /* Pods_SimplyCasts.framework */; };
 		DCEE37B31D6DEBF700EC6907 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE37B21D6DEBF700EC6907 /* AppDelegate.swift */; };
 		DCEE37B51D6DEBF700EC6907 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE37B41D6DEBF700EC6907 /* ViewController.swift */; };
 		DCEE37B81D6DEBF700EC6907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCEE37B61D6DEBF700EC6907 /* Main.storyboard */; };
@@ -26,6 +27,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		683130F508F562294536B1CC /* Pods-SimplyCasts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCasts.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimplyCasts/Pods-SimplyCasts.release.xcconfig"; sourceTree = "<group>"; };
+		B3E1489B67D3D7331A74636B /* Pods-SimplyCasts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCasts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimplyCasts/Pods-SimplyCasts.debug.xcconfig"; sourceTree = "<group>"; };
+		B55583BC34D667DA042DB3CA /* Pods_SimplyCasts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimplyCasts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCEE37AF1D6DEBF600EC6907 /* SimplyCasts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplyCasts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCEE37B21D6DEBF700EC6907 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCEE37B41D6DEBF700EC6907 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D0F68C1953A6EEE9F523475 /* Pods_SimplyCasts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +61,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02BC9BB6D21DD8393598E0D5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B3E1489B67D3D7331A74636B /* Pods-SimplyCasts.debug.xcconfig */,
+				683130F508F562294536B1CC /* Pods-SimplyCasts.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3D7AD02E0A2C7B9B0DEC00B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B55583BC34D667DA042DB3CA /* Pods_SimplyCasts.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC51C5561D6DF5360068C697 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				DCEE37BE1D6DEBF700EC6907 /* Info.plist */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		DC51C5571D6DF5540068C697 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				DCEE37B61D6DEBF700EC6907 /* Main.storyboard */,
+				DCEE37B91D6DEBF700EC6907 /* Assets.xcassets */,
+				DCEE37BB1D6DEBF700EC6907 /* LaunchScreen.storyboard */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		DC51C5581D6DF56C0068C697 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		DC51C5591D6DF5730068C697 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		DC51C55A1D6DF5790068C697 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DCEE37B41D6DEBF700EC6907 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		DC51C55B1D6DF58F0068C697 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				DCEE37B21D6DEBF700EC6907 /* AppDelegate.swift */,
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
 		DCEE37A61D6DEBF600EC6907 = {
 			isa = PBXGroup;
 			children = (
 				DCEE37B11D6DEBF600EC6907 /* SimplyCasts */,
 				DCEE37C61D6DEBF700EC6907 /* SimplyCastsTests */,
 				DCEE37B01D6DEBF600EC6907 /* Products */,
+				02BC9BB6D21DD8393598E0D5 /* Pods */,
+				3D7AD02E0A2C7B9B0DEC00B2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,12 +149,12 @@
 		DCEE37B11D6DEBF600EC6907 /* SimplyCasts */ = {
 			isa = PBXGroup;
 			children = (
-				DCEE37B21D6DEBF700EC6907 /* AppDelegate.swift */,
-				DCEE37B41D6DEBF700EC6907 /* ViewController.swift */,
-				DCEE37B61D6DEBF700EC6907 /* Main.storyboard */,
-				DCEE37B91D6DEBF700EC6907 /* Assets.xcassets */,
-				DCEE37BB1D6DEBF700EC6907 /* LaunchScreen.storyboard */,
-				DCEE37BE1D6DEBF700EC6907 /* Info.plist */,
+				DC51C55B1D6DF58F0068C697 /* Others */,
+				DC51C5581D6DF56C0068C697 /* Model */,
+				DC51C5591D6DF5730068C697 /* View */,
+				DC51C55A1D6DF5790068C697 /* Controller */,
+				DC51C5571D6DF5540068C697 /* Assets */,
+				DC51C5561D6DF5360068C697 /* SupportingFiles */,
 			);
 			path = SimplyCasts;
 			sourceTree = "<group>";
@@ -103,9 +175,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DCEE37CC1D6DEBF700EC6907 /* Build configuration list for PBXNativeTarget "SimplyCasts" */;
 			buildPhases = (
+				B451D73066D5C7FA0EFB262B /* 📦 Check Pods Manifest.lock */,
 				DCEE37AB1D6DEBF600EC6907 /* Sources */,
 				DCEE37AC1D6DEBF600EC6907 /* Frameworks */,
 				DCEE37AD1D6DEBF600EC6907 /* Resources */,
+				2A1A394F34BE409EE082BC54 /* 📦 Embed Pods Frameworks */,
+				298D361759DB2C5CD4B7D4C2 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -191,6 +266,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		298D361759DB2C5CD4B7D4C2 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimplyCasts/Pods-SimplyCasts-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2A1A394F34BE409EE082BC54 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SimplyCasts/Pods-SimplyCasts-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B451D73066D5C7FA0EFB262B /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DCEE37AB1D6DEBF600EC6907 /* Sources */ = {
@@ -325,6 +448,7 @@
 		};
 		DCEE37CD1D6DEBF700EC6907 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3E1489B67D3D7331A74636B /* Pods-SimplyCasts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SimplyCasts/Info.plist;
@@ -336,6 +460,7 @@
 		};
 		DCEE37CE1D6DEBF700EC6907 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 683130F508F562294536B1CC /* Pods-SimplyCasts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SimplyCasts/Info.plist;
@@ -388,6 +513,7 @@
 				DCEE37CE1D6DEBF700EC6907 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DCEE37CF1D6DEBF700EC6907 /* Build configuration list for PBXNativeTarget "SimplyCastsTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +522,7 @@
 				DCEE37D11D6DEBF700EC6907 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
