@@ -8,17 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		1D0F68C1953A6EEE9F523475 /* Pods_SimplyCasts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55583BC34D667DA042DB3CA /* Pods_SimplyCasts.framework */; };
-		DC39E3AF1D70538B0043EAE8 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3AB1D70538B0043EAE8 /* CoreDataStack.swift */; };
-		DC39E3B01D70538B0043EAE8 /* FunctionsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3AC1D70538B0043EAE8 /* FunctionsHelper.swift */; };
-		DC39E3B11D70538B0043EAE8 /* HTTPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3AD1D70538B0043EAE8 /* HTTPHelper.swift */; };
-		DC39E3B21D70538B0043EAE8 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3AE1D70538B0043EAE8 /* Logger.swift */; };
-		DC39E3B41D7053B90043EAE8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3B31D7053B90043EAE8 /* Constants.swift */; };
-		DCEE37B31D6DEBF700EC6907 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE37B21D6DEBF700EC6907 /* AppDelegate.swift */; };
-		DCEE37B51D6DEBF700EC6907 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE37B41D6DEBF700EC6907 /* ViewController.swift */; };
+		DC39E3B81D7057520043EAE8 /* FeedHelperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3B71D7057520043EAE8 /* FeedHelperTest.swift */; };
+		DC39E3C51D705BC50043EAE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3BF1D705BC50043EAE8 /* AppDelegate.swift */; };
+		DC39E3C61D705BC50043EAE8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3C01D705BC50043EAE8 /* Constants.swift */; };
+		DC39E3C71D705BC50043EAE8 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3C11D705BC50043EAE8 /* CoreDataStack.swift */; };
+		DC39E3C81D705BC50043EAE8 /* FunctionsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3C21D705BC50043EAE8 /* FunctionsHelper.swift */; };
+		DC39E3C91D705BC50043EAE8 /* HTTPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3C31D705BC50043EAE8 /* HTTPHelper.swift */; };
+		DC39E3CA1D705BC50043EAE8 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3C41D705BC50043EAE8 /* Logger.swift */; };
+		DC39E3CE1D705C5F0043EAE8 /* FeedHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3CB1D705C5F0043EAE8 /* FeedHelper.swift */; };
+		DC39E3CF1D705C5F0043EAE8 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3CC1D705C5F0043EAE8 /* Model.xcdatamodeld */; };
 		DCEE37B81D6DEBF700EC6907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCEE37B61D6DEBF700EC6907 /* Main.storyboard */; };
 		DCEE37BA1D6DEBF700EC6907 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCEE37B91D6DEBF700EC6907 /* Assets.xcassets */; };
 		DCEE37BD1D6DEBF700EC6907 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCEE37BB1D6DEBF700EC6907 /* LaunchScreen.storyboard */; };
-		DCEE37C81D6DEBF700EC6907 /* SimplyCastsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE37C71D6DEBF700EC6907 /* SimplyCastsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,20 +36,21 @@
 		683130F508F562294536B1CC /* Pods-SimplyCasts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCasts.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimplyCasts/Pods-SimplyCasts.release.xcconfig"; sourceTree = "<group>"; };
 		B3E1489B67D3D7331A74636B /* Pods-SimplyCasts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCasts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimplyCasts/Pods-SimplyCasts.debug.xcconfig"; sourceTree = "<group>"; };
 		B55583BC34D667DA042DB3CA /* Pods_SimplyCasts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimplyCasts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC39E3AB1D70538B0043EAE8 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		DC39E3AC1D70538B0043EAE8 /* FunctionsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionsHelper.swift; sourceTree = "<group>"; };
-		DC39E3AD1D70538B0043EAE8 /* HTTPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHelper.swift; sourceTree = "<group>"; };
-		DC39E3AE1D70538B0043EAE8 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		DC39E3B31D7053B90043EAE8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DC39E3B71D7057520043EAE8 /* FeedHelperTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedHelperTest.swift; sourceTree = "<group>"; };
+		DC39E3BF1D705BC50043EAE8 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DC39E3C01D705BC50043EAE8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DC39E3C11D705BC50043EAE8 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		DC39E3C21D705BC50043EAE8 /* FunctionsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionsHelper.swift; sourceTree = "<group>"; };
+		DC39E3C31D705BC50043EAE8 /* HTTPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHelper.swift; sourceTree = "<group>"; };
+		DC39E3C41D705BC50043EAE8 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		DC39E3CB1D705C5F0043EAE8 /* FeedHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedHelper.swift; sourceTree = "<group>"; };
+		DC39E3CD1D705C5F0043EAE8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		DCEE37AF1D6DEBF600EC6907 /* SimplyCasts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplyCasts.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DCEE37B21D6DEBF700EC6907 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DCEE37B41D6DEBF700EC6907 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DCEE37B71D6DEBF700EC6907 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DCEE37B91D6DEBF700EC6907 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCEE37BC1D6DEBF700EC6907 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DCEE37BE1D6DEBF700EC6907 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCEE37C31D6DEBF700EC6907 /* SimplyCastsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimplyCastsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DCEE37C71D6DEBF700EC6907 /* SimplyCastsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplyCastsTests.swift; sourceTree = "<group>"; };
 		DCEE37C91D6DEBF700EC6907 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,36 +111,37 @@
 		DC51C5581D6DF56C0068C697 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DC39E3CB1D705C5F0043EAE8 /* FeedHelper.swift */,
+				DC39E3CC1D705C5F0043EAE8 /* Model.xcdatamodeld */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DC51C5591D6DF5730068C697 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		DC51C55A1D6DF5790068C697 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DCEE37B41D6DEBF700EC6907 /* ViewController.swift */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		DC51C55B1D6DF58F0068C697 /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				DC39E3B31D7053B90043EAE8 /* Constants.swift */,
-				DC39E3AB1D70538B0043EAE8 /* CoreDataStack.swift */,
-				DC39E3AC1D70538B0043EAE8 /* FunctionsHelper.swift */,
-				DC39E3AD1D70538B0043EAE8 /* HTTPHelper.swift */,
-				DC39E3AE1D70538B0043EAE8 /* Logger.swift */,
-				DCEE37B21D6DEBF700EC6907 /* AppDelegate.swift */,
+				DC39E3BF1D705BC50043EAE8 /* AppDelegate.swift */,
+				DC39E3C01D705BC50043EAE8 /* Constants.swift */,
+				DC39E3C11D705BC50043EAE8 /* CoreDataStack.swift */,
+				DC39E3C21D705BC50043EAE8 /* FunctionsHelper.swift */,
+				DC39E3C31D705BC50043EAE8 /* HTTPHelper.swift */,
+				DC39E3C41D705BC50043EAE8 /* Logger.swift */,
 			);
-			name = Others;
+			path = Others;
 			sourceTree = "<group>";
 		};
 		DCEE37A61D6DEBF600EC6907 = {
@@ -177,8 +180,8 @@
 		DCEE37C61D6DEBF700EC6907 /* SimplyCastsTests */ = {
 			isa = PBXGroup;
 			children = (
-				DCEE37C71D6DEBF700EC6907 /* SimplyCastsTests.swift */,
 				DCEE37C91D6DEBF700EC6907 /* Info.plist */,
+				DC39E3B71D7057520043EAE8 /* FeedHelperTest.swift */,
 			);
 			path = SimplyCastsTests;
 			sourceTree = "<group>";
@@ -335,13 +338,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC39E3AF1D70538B0043EAE8 /* CoreDataStack.swift in Sources */,
-				DC39E3B21D70538B0043EAE8 /* Logger.swift in Sources */,
-				DC39E3B01D70538B0043EAE8 /* FunctionsHelper.swift in Sources */,
-				DC39E3B11D70538B0043EAE8 /* HTTPHelper.swift in Sources */,
-				DC39E3B41D7053B90043EAE8 /* Constants.swift in Sources */,
-				DCEE37B51D6DEBF700EC6907 /* ViewController.swift in Sources */,
-				DCEE37B31D6DEBF700EC6907 /* AppDelegate.swift in Sources */,
+				DC39E3C71D705BC50043EAE8 /* CoreDataStack.swift in Sources */,
+				DC39E3CE1D705C5F0043EAE8 /* FeedHelper.swift in Sources */,
+				DC39E3C91D705BC50043EAE8 /* HTTPHelper.swift in Sources */,
+				DC39E3CF1D705C5F0043EAE8 /* Model.xcdatamodeld in Sources */,
+				DC39E3C51D705BC50043EAE8 /* AppDelegate.swift in Sources */,
+				DC39E3C61D705BC50043EAE8 /* Constants.swift in Sources */,
+				DC39E3C81D705BC50043EAE8 /* FunctionsHelper.swift in Sources */,
+				DC39E3CA1D705BC50043EAE8 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,7 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCEE37C81D6DEBF700EC6907 /* SimplyCastsTests.swift in Sources */,
+				DC39E3B81D7057520043EAE8 /* FeedHelperTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,6 +549,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DC39E3CC1D705C5F0043EAE8 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DC39E3CD1D705C5F0043EAE8 /* Model.xcdatamodel */,
+			);
+			currentVersion = DC39E3CD1D705C5F0043EAE8 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DCEE37A71D6DEBF600EC6907 /* Project object */;
 }
