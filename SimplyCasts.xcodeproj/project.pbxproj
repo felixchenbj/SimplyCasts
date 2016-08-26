@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1D0F68C1953A6EEE9F523475 /* Pods_SimplyCasts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55583BC34D667DA042DB3CA /* Pods_SimplyCasts.framework */; };
+		DC39E3AF1D70538B0043EAE8 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3AB1D70538B0043EAE8 /* CoreDataStack.swift */; };
+		DC39E3B01D70538B0043EAE8 /* FunctionsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3AC1D70538B0043EAE8 /* FunctionsHelper.swift */; };
+		DC39E3B11D70538B0043EAE8 /* HTTPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3AD1D70538B0043EAE8 /* HTTPHelper.swift */; };
+		DC39E3B21D70538B0043EAE8 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3AE1D70538B0043EAE8 /* Logger.swift */; };
+		DC39E3B41D7053B90043EAE8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3B31D7053B90043EAE8 /* Constants.swift */; };
 		DCEE37B31D6DEBF700EC6907 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE37B21D6DEBF700EC6907 /* AppDelegate.swift */; };
 		DCEE37B51D6DEBF700EC6907 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE37B41D6DEBF700EC6907 /* ViewController.swift */; };
 		DCEE37B81D6DEBF700EC6907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCEE37B61D6DEBF700EC6907 /* Main.storyboard */; };
@@ -30,6 +35,11 @@
 		683130F508F562294536B1CC /* Pods-SimplyCasts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCasts.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimplyCasts/Pods-SimplyCasts.release.xcconfig"; sourceTree = "<group>"; };
 		B3E1489B67D3D7331A74636B /* Pods-SimplyCasts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCasts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimplyCasts/Pods-SimplyCasts.debug.xcconfig"; sourceTree = "<group>"; };
 		B55583BC34D667DA042DB3CA /* Pods_SimplyCasts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimplyCasts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC39E3AB1D70538B0043EAE8 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		DC39E3AC1D70538B0043EAE8 /* FunctionsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionsHelper.swift; sourceTree = "<group>"; };
+		DC39E3AD1D70538B0043EAE8 /* HTTPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHelper.swift; sourceTree = "<group>"; };
+		DC39E3AE1D70538B0043EAE8 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		DC39E3B31D7053B90043EAE8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DCEE37AF1D6DEBF600EC6907 /* SimplyCasts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplyCasts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCEE37B21D6DEBF700EC6907 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCEE37B41D6DEBF700EC6907 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +131,11 @@
 		DC51C55B1D6DF58F0068C697 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				DC39E3B31D7053B90043EAE8 /* Constants.swift */,
+				DC39E3AB1D70538B0043EAE8 /* CoreDataStack.swift */,
+				DC39E3AC1D70538B0043EAE8 /* FunctionsHelper.swift */,
+				DC39E3AD1D70538B0043EAE8 /* HTTPHelper.swift */,
+				DC39E3AE1D70538B0043EAE8 /* Logger.swift */,
 				DCEE37B21D6DEBF700EC6907 /* AppDelegate.swift */,
 			);
 			name = Others;
@@ -320,6 +335,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC39E3AF1D70538B0043EAE8 /* CoreDataStack.swift in Sources */,
+				DC39E3B21D70538B0043EAE8 /* Logger.swift in Sources */,
+				DC39E3B01D70538B0043EAE8 /* FunctionsHelper.swift in Sources */,
+				DC39E3B11D70538B0043EAE8 /* HTTPHelper.swift in Sources */,
+				DC39E3B41D7053B90043EAE8 /* Constants.swift in Sources */,
 				DCEE37B51D6DEBF700EC6907 /* ViewController.swift in Sources */,
 				DCEE37B31D6DEBF700EC6907 /* AppDelegate.swift in Sources */,
 			);
