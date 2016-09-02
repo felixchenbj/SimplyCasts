@@ -21,10 +21,17 @@ class FeedHelperTest: XCTestCase {
         super.tearDown()
     }
 
-    func testExample() {
+    func testHttpFeed() {
         let helper = FeedHelper()
         
         helper.parser("http://nj.lizhi.fm/rss/12479.xml")
         
     }
+    
+    func testHttpsFeed() {
+        let helper = FeedHelper()
+        helper.parser("https://ipn.li/taiyilaile/feed")
+        
+    }
+
 }

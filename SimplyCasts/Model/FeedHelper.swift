@@ -23,6 +23,16 @@ class FeedHelper {
                     
                     print(rssFeed.title)
                     print(rssFeed.description)
+                    print(rssFeed.categories)
+                    print(rssFeed.docs)
+                    print(rssFeed.generator)
+                    print(rssFeed.managingEditor)
+                    print(rssFeed.pubDate)
+                    print(rssFeed.lastBuildDate)
+                    print(rssFeed.textInput)
+                    print(rssFeed.webMaster)
+                    print(rssFeed.image)
+                    
                 case .Failure(let error):
                     Logger.log.error("Failed to parse the feed: \(urlString), error is, \(error)")
                 default:
