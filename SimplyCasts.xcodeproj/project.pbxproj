@@ -17,6 +17,7 @@
 		DC39E3CA1D705BC50043EAE8 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3C41D705BC50043EAE8 /* Logger.swift */; };
 		DC39E3CE1D705C5F0043EAE8 /* FeedHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3CB1D705C5F0043EAE8 /* FeedHelper.swift */; };
 		DC39E3CF1D705C5F0043EAE8 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3CC1D705C5F0043EAE8 /* Model.xcdatamodeld */; };
+		DC3C4BE01D7B9305000168E9 /* RSSPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3C4BDF1D7B9305000168E9 /* RSSPath.swift */; };
 		DCEE37B81D6DEBF700EC6907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCEE37B61D6DEBF700EC6907 /* Main.storyboard */; };
 		DCEE37BA1D6DEBF700EC6907 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCEE37B91D6DEBF700EC6907 /* Assets.xcassets */; };
 		DCEE37BD1D6DEBF700EC6907 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCEE37BB1D6DEBF700EC6907 /* LaunchScreen.storyboard */; };
@@ -45,6 +46,7 @@
 		DC39E3C41D705BC50043EAE8 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		DC39E3CB1D705C5F0043EAE8 /* FeedHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedHelper.swift; sourceTree = "<group>"; };
 		DC39E3CD1D705C5F0043EAE8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		DC3C4BDF1D7B9305000168E9 /* RSSPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSPath.swift; sourceTree = "<group>"; };
 		DCEE37AF1D6DEBF600EC6907 /* SimplyCasts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplyCasts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCEE37B71D6DEBF700EC6907 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DCEE37B91D6DEBF700EC6907 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				DC39E3C21D705BC50043EAE8 /* FunctionsHelper.swift */,
 				DC39E3C31D705BC50043EAE8 /* HTTPHelper.swift */,
 				DC39E3C41D705BC50043EAE8 /* Logger.swift */,
+				DC3C4BDF1D7B9305000168E9 /* RSSPath.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				DC39E3CF1D705C5F0043EAE8 /* Model.xcdatamodeld in Sources */,
 				DC39E3C51D705BC50043EAE8 /* AppDelegate.swift in Sources */,
 				DC39E3C61D705BC50043EAE8 /* Constants.swift in Sources */,
+				DC3C4BE01D7B9305000168E9 /* RSSPath.swift in Sources */,
 				DC39E3C81D705BC50043EAE8 /* FunctionsHelper.swift in Sources */,
 				DC39E3CA1D705BC50043EAE8 /* Logger.swift in Sources */,
 			);
@@ -498,6 +502,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = SimplyCastsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = info.felixchen.SimplyCastsTests;
@@ -510,6 +515,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = SimplyCastsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = info.felixchen.SimplyCastsTests;

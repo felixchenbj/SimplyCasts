@@ -24,14 +24,16 @@ class FeedHelperTest: XCTestCase {
     func testHttpFeed() {
         let helper = FeedHelper()
         
-        helper.parser("http://nj.lizhi.fm/rss/12479.xml")
-        
+        helper.parser("http://nj.lizhi.fm/rss/12479.xml") { (info, success) in
+            XCTAssert(success)
+        }
     }
     
     func testHttpsFeed() {
         let helper = FeedHelper()
-        helper.parser("https://ipn.li/taiyilaile/feed")
-        
+        helper.parser("https://ipn.li/taiyilaile/feed") { (info, success) in
+            XCTAssert(success)
+        }
     }
 
 }
