@@ -57,5 +57,4 @@ struct HTTPHelper {
             completion(data: data, response: response, error: error)
             }.resume()
     }
-
 }

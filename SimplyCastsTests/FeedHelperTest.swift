@@ -11,9 +11,15 @@ import XCTest
 
 class FeedHelperTest: XCTestCase {
 
+    var stack: CoreDataStack!
+    
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        // Get the stack
+        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        stack = delegate.stack
     }
     
     override func tearDown() {
@@ -22,17 +28,20 @@ class FeedHelperTest: XCTestCase {
     }
 
     func testHttpFeed() {
-        let helper = FeedHelper()
-        
-        helper.parser("http://nj.lizhi.fm/rss/12479.xml") { (info, success) in
+        FeedHelper.addFeed(stack.context, urlString: "http://www.bbc.co.uk/programmes/p042jdq5/episodes/downloads.rss") { (feed, info, success) in
             XCTAssert(success)
+            print(feed?.title)
+            print(feed?.link)
+            print(feed?.publishDate)
         }
     }
     
     func testHttpsFeed() {
-        let helper = FeedHelper()
-        helper.parser("https://ipn.li/taiyilaile/feed") { (info, success) in
+        FeedHelper.addFeed(stack.context,urlString: "https://ipn.li/taiyilaile/feed") { (feed, info, success) in
             XCTAssert(success)
+            print(feed?.title)
+            print(feed?.link)
+            print(feed?.publishDate)
         }
     }
 

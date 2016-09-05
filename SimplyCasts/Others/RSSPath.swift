@@ -22,4 +22,15 @@ struct RSSPath {
     static let RSSiTunesOwnerName                 = "/rss/channel/itunes:owner/itunes:name"
     static let RSSiTunesOwnerEmail                = "/rss/channel/itunes:owner/itunes:email"
     static let RSSiTunesImage                     = "/rss/channel/itunes:image"
+    static let RSSChannelPubDate                  = "/rss/channel/pubDate"
+    
+    // items
+    static let RSSChannelItem                     = "/rss/channel/item"
+    static let RSSChannelItemTitle                = "title"
+    static let RSSChannelItemLink                 = "link"
+    static let RSSChannelItemDescription          = "description"
+    static let RSSChannelItemAuthor               = "author"
+    static let RSSChannelItemGUID                 = "guid"
+    static let RSSChannelItemPubDate              = "pubDate"
+    static let RSSChannelItemEnclosure            = "enclosure"
 }
