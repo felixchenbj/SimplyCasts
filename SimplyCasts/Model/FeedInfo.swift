@@ -11,8 +11,21 @@ import Foundation
 
 struct FeedInfo {
     var title: String?
+    var ownerName: String?
     var category: String?
     var link: String?
     var pubDate: NSDate?
     var iTunesImageURL: String?
+    
+    var items: [FeedItemInfo]?
+}
+
+struct FeedItemInfo {
+    var title: String?
+    var itemDescription: String?
+    var author: String?
+    var pubDate: NSDate?
+    var enclosureURL: String?
+    
+    var feedInfo: FeedInfo?
 }

@@ -7,8 +7,10 @@
 //
 
 import Foundation
-import Fuzi
 import CoreData
+
+import Fuzi
+import SwiftyJSON
 
 
 class FeedHelper {
@@ -33,6 +35,9 @@ class FeedHelper {
             // get title
             feedInfo.title = getTextFromElement(document.firstChild(xpath: RSSPath.RSSChannelTitle))
             
+            // get owner name
+            feedInfo.ownerName = getTextFromElement(document.firstChild(xpath: RSSPath.RSSiTunesOwnerName))
+            
             // get link
             feedInfo.link = getTextFromElement(document.firstChild(xpath: RSSPath.RSSChannelItemLink))
             
@@ -42,6 +47,9 @@ class FeedHelper {
             // get image url
             feedInfo.iTunesImageURL = getTextFromElement(document.firstChild(xpath: RSSPath.RSSiTunesImage))
             
+            // get items in the feed
+            let items = document.xpath(RSSPath.RSSChannelItem)
+            
             // get pubDate
             let formatter = NSDateFormatter()
             formatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss Z"
@@ -50,8 +58,6 @@ class FeedHelper {
                     feedInfo.pubDate = formatter.dateFromString(dateString)
                 }
             } else { // no pudDate, then try to get pubDate of the first item
-                // get items in the feed
-                let items = document.xpath(RSSPath.RSSChannelItem)
                 if items.count > 0 {
                     if let item = items[0] {
                         if let pubDateString = getTextFromElement(item.firstChild(xpath: RSSPath.RSSChannelItemPubDate)) {
@@ -59,6 +65,22 @@ class FeedHelper {
                         }
                     }
                 }
+            }
+            
+            feedInfo.items = [FeedItemInfo]()
+            for item in items {
+                var feedItemInfo = FeedItemInfo()
+                
+                feedItemInfo.title = getTextFromElement(item.firstChild(xpath: RSSPath.RSSChannelItemTitle))
+                feedItemInfo.itemDescription = getTextFromElement(item.firstChild(xpath: RSSPath.RSSChannelItemDescription))
+                feedItemInfo.author = getTextFromElement(item.firstChild(xpath: RSSPath.RSSChannelItemAuthor))
+                feedItemInfo.enclosureURL = getTextFromElement(item.firstChild(xpath: RSSPath.RSSChannelItemEnclosure))
+                
+                if let dateString = getTextFromElement(item.firstChild(xpath: RSSPath.RSSChannelItemPubDate)) {
+                    feedItemInfo.pubDate = formatter.dateFromString(dateString)
+                }
+                
+                feedInfo.items?.append(feedItemInfo)
             }
             
             return feedInfo
@@ -136,17 +158,6 @@ class FeedHelper {
         // get category
         newFeed.category = getTextFromElement(document.firstChild(xpath: RSSPath.RSSChannelCategory))
         
-        if let imageURL = newFeed.iTunesImageURL {
-            if let url = NSURL(string: imageURL) {
-                HTTPHelper.downloadImageFromUrl(url, completion: { (data, response, error) in
-                    guard let data = data where error == nil else {
-                        return
-                    }
-                    newFeed.iTunesImage = data
-                })
-            }
-        }
-        
         // get pubDate
         let formatter = NSDateFormatter()
         formatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss Z"
@@ -201,4 +212,50 @@ class FeedHelper {
         }
         return false
     }
+    
+    static func searchFeed(term:String, completionHandler: ((info: String, results: [FeedInfo]?, success: Bool) -> Void)?) {
+        var parameters = [String:AnyObject!] ()
+        parameters["entity"] = "podcast"
+        parameters["limit"] = 20
+        parameters["term"] = term
+        
+        var feeds = [FeedInfo]()
+        
+        HTTPHelper.HTTPRequest(Constants.ApiSecureScheme,
+                               host: Constants.ApiHost,
+                               path: Constants.ApiPath,
+                               parameters: parameters ) { (data, statusCode, error) in
+                                
+                                guard error == nil else {
+                                    completionHandler?(info: "There was an error with your request.", results: nil, success: false)
+                                    return
+                                }
+                                
+                                guard statusCode == 200 else {
+                                    completionHandler?(info: "Your request returned a status code other than 2xx!", results: nil, success: false)
+                                    return
+                                }
+                                
+                                if let data = data {
+                                    let json = JSON(data: data)
+                                    
+                                    if let feedresults:Array<JSON> = json["results"].arrayValue {
+                                        for feed in feedresults {
+                                            var feedinfo = FeedInfo()
+                                            feedinfo.link = feed["feedUrl"].stringValue
+                                            feedinfo.iTunesImageURL = feed["artworkUrl60"].stringValue
+                                            feedinfo.title = feed["collectionName"].stringValue
+                                            feedinfo.ownerName = feed["artistName"].stringValue
+                                            
+                                            feeds.append(feedinfo)
+                                        }
+                                    }
+                                }
+                                
+                                completionHandler?(info: "Get search results!", results: feeds, success: true)
+                                
+        }
+    }
+    
+    
 }

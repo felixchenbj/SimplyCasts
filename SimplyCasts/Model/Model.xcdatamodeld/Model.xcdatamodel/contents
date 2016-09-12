@@ -9,7 +9,7 @@
         <attribute name="iTunesOwnerEmail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="iTunesOwnerName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="link" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="publishDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="FeedItem" inverseName="feed" inverseEntity="FeedItem" syncable="YES"/>
