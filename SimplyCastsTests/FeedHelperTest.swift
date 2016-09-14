@@ -33,6 +33,7 @@ class FeedHelperTest: XCTestCase {
             print(feed?.title)
             print(feed?.link)
             print(feed?.publishDate)
+            print(feed?.iTunesImageURL)
         }
     }
     
@@ -42,6 +43,7 @@ class FeedHelperTest: XCTestCase {
             print(feed?.title)
             print(feed?.link)
             print(feed?.publishDate)
+            print(feed?.iTunesImageURL)
         }
     }
 

@@ -27,3 +27,21 @@ struct FunctionsHelper {
         viewController.presentViewController(controller, animated: true, completion:nil)
     }
 }
+
+extension NSData {
+    var attributedString: NSAttributedString? {
+        do {
+            return try NSAttributedString(data: self, options:[NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding], documentAttributes: nil)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        return nil
+    }
+}
+
+extension String {
+    var utf8Data: NSData? {
+        return dataUsingEncoding(NSUTF8StringEncoding)
+    }
+}
+

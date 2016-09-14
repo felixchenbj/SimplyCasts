@@ -28,4 +28,5 @@ class SubscribedFeedItemManager: CoreDataManager {
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fr,
                                                             managedObjectContext: stack.context, sectionNameKeyPath: nil, cacheName: nil)
     }
+    
 }

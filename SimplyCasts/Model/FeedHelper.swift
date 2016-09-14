@@ -30,6 +30,8 @@ class FeedHelper {
             
             var feedInfo = FeedInfo()
             
+            feedInfo.feedURL = urlString
+            
             /* get information about feed */
             
             // get title
@@ -37,9 +39,6 @@ class FeedHelper {
             
             // get owner name
             feedInfo.ownerName = getTextFromElement(document.firstChild(xpath: RSSPath.RSSiTunesOwnerName))
-            
-            // get link
-            feedInfo.link = getTextFromElement(document.firstChild(xpath: RSSPath.RSSChannelItemLink))
             
             // get category
             feedInfo.category = getTextFromElement(document.firstChild(xpath: RSSPath.RSSiTunesCategory))
@@ -111,7 +110,7 @@ class FeedHelper {
             
             let document = try XMLDocument(data: data)
             
-            parserFeed(context, document: document, completionHandler: completionHandler)
+            parserFeed(context, urlString: urlString, document: document, completionHandler: completionHandler)
             
         } catch let error as XMLError {
             Logger.log.error(error)
@@ -124,7 +123,7 @@ class FeedHelper {
         }
     }
     
-    static private func parserFeed(context: NSManagedObjectContext, document: XMLDocument, completionHandler: ((feed:Feed?, info: String, success: Bool) -> Void)? ) {
+    static private func parserFeed(context: NSManagedObjectContext, urlString: String, document: XMLDocument, completionHandler: ((feed:Feed?, info: String, success: Bool) -> Void)? ) {
         
         let channels = document.xpath(RSSPath.RSSChannel)
         guard channels.count > 0 else {
@@ -136,11 +135,16 @@ class FeedHelper {
         
         /* get information about feed */
         
+        newFeed.feedURL = urlString
+        
         // get title
         newFeed.title = getTextFromElement(document.firstChild(xpath: RSSPath.RSSChannelTitle))
         
+        // get title
+        newFeed.author = getTextFromElement(document.firstChild(xpath: RSSPath.RSSChannelAuthor))
+        
         // get link
-        newFeed.link = getTextFromElement(document.firstChild(xpath: RSSPath.RSSChannelItemLink))
+        newFeed.link = getTextFromElement(document.firstChild(xpath: RSSPath.RSSChannelLink))
         
         // get language
         newFeed.language = getTextFromElement(document.firstChild(xpath: RSSPath.RSSChannelLanguage))
@@ -149,7 +153,7 @@ class FeedHelper {
         newFeed.feedDescription = getTextFromElement(document.firstChild(xpath: RSSPath.RSSChannelDescription))
         
         // get image url
-        newFeed.iTunesImageURL = getTextFromElement(document.firstChild(xpath: RSSPath.RSSiTunesImage))
+        newFeed.iTunesImageURL = getAttributeValue(document.firstChild(xpath: RSSPath.RSSiTunesImage), attributeName: "href")
         
         // get owner info
         newFeed.iTunesOwnerName = getTextFromElement(document.firstChild(xpath: RSSPath.RSSiTunesOwnerName))
@@ -183,6 +187,9 @@ class FeedHelper {
             if let dateString = getTextFromElement(item.firstChild(xpath: RSSPath.RSSChannelItemPubDate)) {
                 feedItem.pubDate = formatter.dateFromString(dateString)
             }
+            
+            feedItem.feed = newFeed
+            newFeed.addFeedItem(feedItem)
         }
         
         completionHandler?(feed: newFeed, info: "Feed is parsered.", success: true)
@@ -197,6 +204,10 @@ class FeedHelper {
             }
         }
         return nil
+    }
+    
+    static private func getAttributeValue(element: XMLElement?, attributeName: String) -> String? {
+        return element?[attributeName]
     }
     
     static func needUpdateFeed(feed: Feed) -> Bool{
@@ -242,7 +253,7 @@ class FeedHelper {
                                     if let feedresults:Array<JSON> = json["results"].arrayValue {
                                         for feed in feedresults {
                                             var feedinfo = FeedInfo()
-                                            feedinfo.link = feed["feedUrl"].stringValue
+                                            feedinfo.feedURL = feed["feedUrl"].stringValue
                                             feedinfo.iTunesImageURL = feed["artworkUrl60"].stringValue
                                             feedinfo.title = feed["collectionName"].stringValue
                                             feedinfo.ownerName = feed["artistName"].stringValue

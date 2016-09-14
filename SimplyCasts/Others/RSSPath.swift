@@ -14,6 +14,7 @@ struct RSSPath {
     static let RSSChannelLink                     = "/rss/channel/link"
     static let RSSChannelDescription              = "/rss/channel/description"
     static let RSSChannelLanguage                 = "/rss/channel/language"
+    static let RSSChannelAuthor                   = "/rss/channel/itunes:author"
     
     static let RSSChannelCategory                 = "/rss/channel/category"
     

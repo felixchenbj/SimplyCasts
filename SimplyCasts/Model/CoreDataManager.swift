@@ -47,19 +47,23 @@ class CoreDataManager {
         return 0
     }
     
-    func getFeedAtIndex(indexPath: NSIndexPath) -> Feed? {
-        return fetchedResultsController?.objectAtIndexPath(indexPath) as? Feed
+    func getObjectAtIndex(indexPath: NSIndexPath) -> AnyObject? {
+        return fetchedResultsController?.objectAtIndexPath(indexPath)
     }
     
-    func deleteFeedAtIndex(indexPath: NSIndexPath) {
+    func deleteObjectAtIndex(indexPath: NSIndexPath) {
         if let context = fetchedResultsController?.managedObjectContext,
-            feed = getFeedAtIndex(indexPath) {
-            context.deleteObject(feed)
+            object = getObjectAtIndex(indexPath) {
+            context.deleteObject(object as! NSManagedObject)
         }
     }
     
     func save() {
         stack.save()
+    }
+    
+    func getStack() -> CoreDataStack{
+        return stack
     }
 
 }

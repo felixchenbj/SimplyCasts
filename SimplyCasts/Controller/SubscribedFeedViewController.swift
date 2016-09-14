@@ -16,7 +16,6 @@ class SubscribedFeedViewController: UITableViewController, NSFetchedResultsContr
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         subscribedFeedManager = SubscribedFeedManager()
         subscribedFeedManager.setDelegate(self)
     }
@@ -35,21 +34,24 @@ class SubscribedFeedViewController: UITableViewController, NSFetchedResultsContr
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let storyboard = UIStoryboard (name: "Main", bundle: nil)
         let resultVC = storyboard.instantiateViewControllerWithIdentifier("FeedDetailViewController") as! FeedDetailViewController
-        resultVC.feed = subscribedFeedManager.getFeedAtIndex(indexPath)
-        resultVC.feedInfo = nil
+        resultVC.feed = subscribedFeedManager.getObjectAtIndex(indexPath) as? Feed
         
-        self.navigationController!.pushViewController(resultVC, animated: true)
+        self.navigationController?.pushViewController(resultVC, animated: true)
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCellWithIdentifier("subscribedFeedTableViewCell", forIndexPath: indexPath) as! SubscribedFeedTableViewCell
         
-        if let feed = subscribedFeedManager.getFeedAtIndex(indexPath) {
-            cell.titleLabel.text = feed.title
-            cell.ownerLabel.text = feed.iTunesOwnerName
-            cell.descriptionLabel.text = feed.feedDescription
-        }
+        cell.feed = subscribedFeedManager.getObjectAtIndex(indexPath) as? Feed
+        
+        cell.layer.cornerRadius = 10.0
+        cell.layer.masksToBounds = true
+        cell.layer.borderWidth = 4.0
+        cell.layer.borderColor = self.view.backgroundColor?.CGColor
+        
+        cell.stack = subscribedFeedManager.getStack()
+
         return cell
     }
     
@@ -57,13 +59,12 @@ class SubscribedFeedViewController: UITableViewController, NSFetchedResultsContr
         return UITableViewAutomaticDimension
     }
     
-    
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
             return 80.0
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        subscribedFeedManager.deleteFeedAtIndex(indexPath)
+        subscribedFeedManager.deleteObjectAtIndex(indexPath)
     }
     
     func controllerWillChangeContent(controller: NSFetchedResultsController) {

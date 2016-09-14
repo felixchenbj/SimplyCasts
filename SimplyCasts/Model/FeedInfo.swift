@@ -13,7 +13,7 @@ struct FeedInfo {
     var title: String?
     var ownerName: String?
     var category: String?
-    var link: String?
+    var feedURL: String?
     var pubDate: NSDate?
     var iTunesImageURL: String?
     

@@ -14,7 +14,9 @@ class AddFeedViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var stack: CoreDataStack!
+    var activityIndicator: UIActivityIndicatorView!
+    
+    var subscribedFeedManager: SubscribedFeedManager!
     
     var searchResults = [FeedInfo]()
     
@@ -26,6 +28,15 @@ class AddFeedViewController: UIViewController, UITableViewDelegate, UITableViewD
         searchBar.delegate = self
         
         searchBar.showsCancelButton = true
+        
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+        activityIndicator.center = self.view.center
+        self.view.addSubview(activityIndicator)
+        activityIndicator.stopAnimating()
+        
+        subscribedFeedManager = SubscribedFeedManager()
+        
+        subscribedFeedManager.executeSearch()
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,14 +48,36 @@ class AddFeedViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let result = searchResults[indexPath.row]
         cell.feedInfo = result
+        
+        cell.layer.cornerRadius = 6.0
+        cell.layer.masksToBounds = true
+        cell.layer.borderWidth = 2.0
+        cell.layer.borderColor = tableView.backgroundColor?.CGColor
+        
         return cell
     }
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        activityIndicator.startAnimating()
         let subscribe = UITableViewRowAction(style: .Normal, title: "Subscribe") { action, index in
-            print("subscribe button tapped")
             
-            tableView.editing = false
+            let feedInfo = self.searchResults[indexPath.row]
+            
+            self.subscribedFeedManager.subscribeNewFeed( feedInfo, completionHandler: { (feed, info, success) in
+                FunctionsHelper.performUIUpdatesOnMain({
+                    self.activityIndicator.stopAnimating()
+                    tableView.editing = false
+                })
+                
+                if success {
+                    FunctionsHelper.popupAnOKAlert(self, title: "Subscribe", message: "Successfully!", handler: nil)
+                    self.subscribedFeedManager.save()
+                } else {
+                    FunctionsHelper.popupAnOKAlert(self, title: "Subscribe", message: "Failed!", handler: nil)
+                }
+            })
+            
+
         }
         subscribe.backgroundColor = UIColor.orangeColor()
         return [subscribe]
