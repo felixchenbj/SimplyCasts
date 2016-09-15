@@ -182,8 +182,20 @@ class FeedHelper {
             feedItem.guid = getTextFromElement(item.firstChild(xpath: RSSPath.RSSChannelItemGUID))
             feedItem.link = getTextFromElement(item.firstChild(xpath: RSSPath.RSSChannelItemLink))
             feedItem.author = getTextFromElement(item.firstChild(xpath: RSSPath.RSSChannelItemAuthor))
-            feedItem.enclosureURL = getTextFromElement(item.firstChild(xpath: RSSPath.RSSChannelItemEnclosure))
-
+            if feedItem.author == nil{
+                feedItem.author = getTextFromElement(item.firstChild(xpath: RSSPath.RSSChannelItemItunesAuthor))
+            }
+            let duration = getTextFromElement(item.firstChild(xpath: RSSPath.RSSChannelItemDuration))
+            if let duration = duration {
+                if duration.lowercaseString.rangeOfString(":") != nil {
+                    feedItem.duration = parseDuration(duration)
+                } else {
+                    feedItem.duration = Int(duration)
+                }
+            }
+            
+            feedItem.enclosureURL = getAttributeValue(item.firstChild(xpath: RSSPath.RSSChannelItemEnclosure), attributeName: "url")
+            
             if let dateString = getTextFromElement(item.firstChild(xpath: RSSPath.RSSChannelItemPubDate)) {
                 feedItem.pubDate = formatter.dateFromString(dateString)
             }
@@ -268,5 +280,20 @@ class FeedHelper {
         }
     }
     
+    
+    static private func parseDuration(timeString:String) -> NSTimeInterval {
+        guard !timeString.isEmpty else {
+            return 0
+        }
+        
+        var interval:Double = 0
+        
+        let parts = timeString.componentsSeparatedByString(":")
+        for (index, part) in parts.reverse().enumerate() {
+            interval += (Double(part) ?? 0) * pow(Double(60), Double(index))
+        }
+        
+        return interval
+    }
     
 }

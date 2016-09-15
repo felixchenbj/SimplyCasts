@@ -24,4 +24,16 @@ class Feed: NSManagedObject {
     func addFeedItem(value: FeedItem) {
         self.mutableOrderedSetValueForKey("items").addObject(value)
     }
+    
+    func indexOfFeedItem(value: FeedItem) -> Int {
+        return self.mutableOrderedSetValueForKey("items").indexOfObject(value)
+    }
+    
+    func feedItemAtIndex(index: Int) -> FeedItem? {
+        return self.mutableOrderedSetValueForKey("items").objectAtIndex(index) as? FeedItem
+    }
+    
+    func count() -> Int {
+        return self.mutableOrderedSetValueForKey("items").count
+    }
 }

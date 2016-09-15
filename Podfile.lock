@@ -1,18 +1,21 @@
 PODS:
   - Fuzi (0.3.1)
+  - KDEAudioPlayer (0.9.1)
   - SwiftyJSON (2.3.2)
   - XCGLogger (3.5.1)
 
 DEPENDENCIES:
   - Fuzi (~> 0.3.1)
+  - KDEAudioPlayer
   - SwiftyJSON
   - XCGLogger (~> 3.5)
 
 SPEC CHECKSUMS:
   Fuzi: 25118b725a1637f1676f63ae1acbba1f30a5dd6c
+  KDEAudioPlayer: c052553e051974a39fd2e5e07d7f575ea3f557c2
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   XCGLogger: 94829865eea6fcc1f9a49e23bdc9f120a6848f30
 
-PODFILE CHECKSUM: 6dc6b2f9a2087ab655a79c67637dfa226fe835e3
+PODFILE CHECKSUM: 9a34f8d305b99e54762018cb2b4f6660e6d64035
 
 COCOAPODS: 1.0.0

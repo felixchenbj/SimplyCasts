@@ -49,7 +49,9 @@ class FeedDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let storyboard = UIStoryboard (name: "Main", bundle: nil)
         let resultVC = storyboard.instantiateViewControllerWithIdentifier("AudioPlayViewController") as! AudioPlayViewController
-        resultVC.feedItem = subscribedFeedItemManager?.getObjectAtIndex(indexPath) as? FeedItem
+        //resultVC.feedItem = subscribedFeedItemManager?.getObjectAtIndex(indexPath) as? FeedItem
+        
+        FeedItemAudioPlayer.sharedAudioPlayer.feedItem = subscribedFeedItemManager?.getObjectAtIndex(indexPath) as? FeedItem
         
         self.navigationController?.pushViewController(resultVC, animated: true)
     }

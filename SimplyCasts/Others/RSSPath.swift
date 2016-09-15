@@ -31,6 +31,8 @@ struct RSSPath {
     static let RSSChannelItemLink                 = "link"
     static let RSSChannelItemDescription          = "description"
     static let RSSChannelItemAuthor               = "author"
+    static let RSSChannelItemItunesAuthor         = "itunes:author"
+    static let RSSChannelItemDuration             = "itunes:duration"
     static let RSSChannelItemGUID                 = "guid"
     static let RSSChannelItemPubDate              = "pubDate"
     static let RSSChannelItemEnclosure            = "enclosure"

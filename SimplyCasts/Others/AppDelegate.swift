@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KDEAudioPlayer
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -44,6 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    override func remoteControlReceivedWithEvent(event: UIEvent?) {
+        let rc = event!.subtype
+        
+        print("received remote control \(rc.rawValue)")
+    }
 
 }
 

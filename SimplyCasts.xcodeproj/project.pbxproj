@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1D0F68C1953A6EEE9F523475 /* Pods_SimplyCasts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55583BC34D667DA042DB3CA /* Pods_SimplyCasts.framework */; };
+		DC0CF5761D8A956500C53A05 /* RoundButtonWithLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0CF5751D8A956500C53A05 /* RoundButtonWithLoading.swift */; };
+		DC0CF5781D8AA07100C53A05 /* MiniPlayerToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC0CF5771D8AA07100C53A05 /* MiniPlayerToolbar.xib */; };
 		DC39E3B81D7057520043EAE8 /* FeedHelperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3B71D7057520043EAE8 /* FeedHelperTest.swift */; };
 		DC39E3C51D705BC50043EAE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3BF1D705BC50043EAE8 /* AppDelegate.swift */; };
 		DC39E3C61D705BC50043EAE8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3C01D705BC50043EAE8 /* Constants.swift */; };
@@ -25,6 +27,7 @@
 		DC3C4BFE1D7D6662000168E9 /* FeedInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3C4BFD1D7D6662000168E9 /* FeedInfo.swift */; };
 		DC3C4C001D7D7669000168E9 /* AddFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3C4BFF1D7D7669000168E9 /* AddFeedViewController.swift */; };
 		DC3C4C061D7DA2B6000168E9 /* SubscribedFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3C4C051D7DA2B6000168E9 /* SubscribedFeedViewController.swift */; };
+		DC9E35641D89AFC200D78952 /* FeedItemAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E35631D89AFC200D78952 /* FeedItemAudioPlayer.swift */; };
 		DCEB39631D817551006AE1D3 /* FeedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB39621D817551006AE1D3 /* FeedDetailViewController.swift */; };
 		DCEB39651D8179FB006AE1D3 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB39641D8179FB006AE1D3 /* Reachability.swift */; };
 		DCEB39671D86D243006AE1D3 /* SubscribedFeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB39661D86D243006AE1D3 /* SubscribedFeedManager.swift */; };
@@ -53,6 +56,8 @@
 		683130F508F562294536B1CC /* Pods-SimplyCasts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCasts.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimplyCasts/Pods-SimplyCasts.release.xcconfig"; sourceTree = "<group>"; };
 		B3E1489B67D3D7331A74636B /* Pods-SimplyCasts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimplyCasts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimplyCasts/Pods-SimplyCasts.debug.xcconfig"; sourceTree = "<group>"; };
 		B55583BC34D667DA042DB3CA /* Pods_SimplyCasts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimplyCasts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC0CF5751D8A956500C53A05 /* RoundButtonWithLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButtonWithLoading.swift; sourceTree = "<group>"; };
+		DC0CF5771D8AA07100C53A05 /* MiniPlayerToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MiniPlayerToolbar.xib; sourceTree = "<group>"; };
 		DC39E3B71D7057520043EAE8 /* FeedHelperTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedHelperTest.swift; sourceTree = "<group>"; };
 		DC39E3BF1D705BC50043EAE8 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC39E3C01D705BC50043EAE8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -70,6 +75,7 @@
 		DC3C4BFD1D7D6662000168E9 /* FeedInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedInfo.swift; sourceTree = "<group>"; };
 		DC3C4BFF1D7D7669000168E9 /* AddFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFeedViewController.swift; sourceTree = "<group>"; };
 		DC3C4C051D7DA2B6000168E9 /* SubscribedFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribedFeedViewController.swift; sourceTree = "<group>"; };
+		DC9E35631D89AFC200D78952 /* FeedItemAudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemAudioPlayer.swift; sourceTree = "<group>"; };
 		DCEB39621D817551006AE1D3 /* FeedDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedDetailViewController.swift; sourceTree = "<group>"; };
 		DCEB39641D8179FB006AE1D3 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		DCEB39661D86D243006AE1D3 /* SubscribedFeedManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribedFeedManager.swift; sourceTree = "<group>"; };
@@ -149,6 +155,7 @@
 				DCEE37B61D6DEBF700EC6907 /* Main.storyboard */,
 				DCEE37B91D6DEBF700EC6907 /* Assets.xcassets */,
 				DCEE37BB1D6DEBF700EC6907 /* LaunchScreen.storyboard */,
+				DC0CF5771D8AA07100C53A05 /* MiniPlayerToolbar.xib */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -173,6 +180,7 @@
 				DCEB396C1D86EBF4006AE1D3 /* FeedTableViewCell.swift */,
 				DCEB396D1D86EBF4006AE1D3 /* SubscribedFeedTableViewCell.swift */,
 				DCEB39721D88526A006AE1D3 /* RoundButton.swift */,
+				DC0CF5751D8A956500C53A05 /* RoundButtonWithLoading.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -199,6 +207,7 @@
 				DC39E3C41D705BC50043EAE8 /* Logger.swift */,
 				DC3C4BDF1D7B9305000168E9 /* RSSPath.swift */,
 				DCEB39641D8179FB006AE1D3 /* Reachability.swift */,
+				DC9E35631D89AFC200D78952 /* FeedItemAudioPlayer.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -298,6 +307,11 @@
 				TargetAttributes = {
 					DCEE37AE1D6DEBF600EC6907 = {
 						CreatedOnToolsVersion = 7.3.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					DCEE37C21D6DEBF700EC6907 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -330,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCEE37BD1D6DEBF700EC6907 /* LaunchScreen.storyboard in Resources */,
+				DC0CF5781D8AA07100C53A05 /* MiniPlayerToolbar.xib in Resources */,
 				DCEE37BA1D6DEBF700EC6907 /* Assets.xcassets in Resources */,
 				DCEE37B81D6DEBF700EC6907 /* Main.storyboard in Resources */,
 			);
@@ -403,12 +418,14 @@
 				DC3C4BFE1D7D6662000168E9 /* FeedInfo.swift in Sources */,
 				DC3C4BF11D7C17A8000168E9 /* Feed.swift in Sources */,
 				DC3C4BF41D7C17C9000168E9 /* FeedItem+CoreDataProperties.swift in Sources */,
+				DC9E35641D89AFC200D78952 /* FeedItemAudioPlayer.swift in Sources */,
 				DC39E3CE1D705C5F0043EAE8 /* FeedHelper.swift in Sources */,
 				DC39E3C91D705BC50043EAE8 /* HTTPHelper.swift in Sources */,
 				DC39E3CF1D705C5F0043EAE8 /* Model.xcdatamodeld in Sources */,
 				DCEB396B1D86E1EB006AE1D3 /* CoreDataManager.swift in Sources */,
 				DCEB396F1D86EBF4006AE1D3 /* SubscribedFeedTableViewCell.swift in Sources */,
 				DC39E3C51D705BC50043EAE8 /* AppDelegate.swift in Sources */,
+				DC0CF5761D8A956500C53A05 /* RoundButtonWithLoading.swift in Sources */,
 				DC3C4BF51D7C17C9000168E9 /* FeedItem.swift in Sources */,
 				DCEB39751D885365006AE1D3 /* AudioPlayViewController.swift in Sources */,
 				DC39E3C61D705BC50043EAE8 /* Constants.swift in Sources */,

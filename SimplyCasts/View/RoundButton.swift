@@ -25,9 +25,9 @@ class RoundButton: UIButton {
         
         var radius: CGFloat = 0.0
         if self.frame.width < self.frame.height {
-            radius = self.frame.width / 2
+            radius = self.frame.width / 3
         } else {
-            radius = self.frame.height / 2
+            radius = self.frame.height / 3
         }
         self.layer.cornerRadius = radius
         self.layer.masksToBounds = true

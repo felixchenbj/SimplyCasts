@@ -58,6 +58,10 @@ class CoreDataManager {
         }
     }
     
+    func indexOfObject(object: AnyObject) -> NSIndexPath? {
+        return fetchedResultsController?.indexPathForObject(object)
+    }
+    
     func save() {
         stack.save()
     }
