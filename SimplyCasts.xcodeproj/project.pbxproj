@@ -30,7 +30,6 @@
 		DC3C4C061D7DA2B6000168E9 /* SubscribedFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3C4C051D7DA2B6000168E9 /* SubscribedFeedViewController.swift */; };
 		DC9E35641D89AFC200D78952 /* FeedItemAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9E35631D89AFC200D78952 /* FeedItemAudioPlayer.swift */; };
 		DCEB39631D817551006AE1D3 /* FeedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB39621D817551006AE1D3 /* FeedDetailViewController.swift */; };
-		DCEB39651D8179FB006AE1D3 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB39641D8179FB006AE1D3 /* Reachability.swift */; };
 		DCEB39671D86D243006AE1D3 /* SubscribedFeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB39661D86D243006AE1D3 /* SubscribedFeedManager.swift */; };
 		DCEB39691D86DDB8006AE1D3 /* SubscribedFeedItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB39681D86DDB8006AE1D3 /* SubscribedFeedItemManager.swift */; };
 		DCEB396B1D86E1EB006AE1D3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEB396A1D86E1EB006AE1D3 /* CoreDataManager.swift */; };
@@ -79,7 +78,6 @@
 		DC3C4C051D7DA2B6000168E9 /* SubscribedFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribedFeedViewController.swift; sourceTree = "<group>"; };
 		DC9E35631D89AFC200D78952 /* FeedItemAudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemAudioPlayer.swift; sourceTree = "<group>"; };
 		DCEB39621D817551006AE1D3 /* FeedDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedDetailViewController.swift; sourceTree = "<group>"; };
-		DCEB39641D8179FB006AE1D3 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		DCEB39661D86D243006AE1D3 /* SubscribedFeedManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribedFeedManager.swift; sourceTree = "<group>"; };
 		DCEB39681D86DDB8006AE1D3 /* SubscribedFeedItemManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribedFeedItemManager.swift; sourceTree = "<group>"; };
 		DCEB396A1D86E1EB006AE1D3 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -209,7 +207,6 @@
 				DC39E3C31D705BC50043EAE8 /* HTTPHelper.swift */,
 				DC39E3C41D705BC50043EAE8 /* Logger.swift */,
 				DC3C4BDF1D7B9305000168E9 /* RSSPath.swift */,
-				DCEB39641D8179FB006AE1D3 /* Reachability.swift */,
 				DC9E35631D89AFC200D78952 /* FeedItemAudioPlayer.swift */,
 			);
 			path = Others;
@@ -441,7 +438,6 @@
 				DC3C4C001D7D7669000168E9 /* AddFeedViewController.swift in Sources */,
 				DC39E3CA1D705BC50043EAE8 /* Logger.swift in Sources */,
 				DC3C4BF01D7C17A8000168E9 /* Feed+CoreDataProperties.swift in Sources */,
-				DCEB39651D8179FB006AE1D3 /* Reachability.swift in Sources */,
 				DCEB396E1D86EBF4006AE1D3 /* FeedTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

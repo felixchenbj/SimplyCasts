@@ -17,6 +17,8 @@ class SubscribedFeedViewController: UIViewController, UITableViewDelegate, UITab
 
     var subscribedFeedManager: SubscribedFeedManager!
     
+    var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +27,14 @@ class SubscribedFeedViewController: UIViewController, UITableViewDelegate, UITab
         
         subscribedFeedManager = SubscribedFeedManager()
         subscribedFeedManager.setDelegate(self)
+        
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+        activityIndicator.center = self.view.center
+        activityIndicator.backgroundColor = UIColor.grayColor()
+        activityIndicator.layer.cornerRadius = 5.0
+        activityIndicator.layer.masksToBounds = true
+        self.view.addSubview(activityIndicator)
+        activityIndicator.stopAnimating()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -80,8 +90,43 @@ class SubscribedFeedViewController: UIViewController, UITableViewDelegate, UITab
             return 80.0
     }
     
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        
+        let refresh = UITableViewRowAction(style: .Normal, title: "Refresh") { action, index in
+            FunctionsHelper.performUIUpdatesOnMain({ 
+                tableView.editing = false
+                self.activityIndicator.startAnimating()
+            })
+            FunctionsHelper.performTasksOnBackground({
+                if let feedInCell = self.subscribedFeedManager.getObjectAtIndex(indexPath) as? Feed {
+                    
+                    if let url = feedInCell.feedURL {
+                        self.subscribedFeedManager.deleteObject(feedInCell)
+                        self.subscribedFeedManager.subscribeNewFeed( url, completionHandler: { (feed, info, success) in
+                            FunctionsHelper.performUIUpdatesOnMain({
+                                self.subscribedFeedManager.executeSearch()
+                                self.subscribedFeedManager.save()
+                                tableView.reloadData()
+                                self.activityIndicator.stopAnimating()
+                            })
+                        })
+                    }
+                }
+            })
+        }
+        refresh.backgroundColor = UIColor.orangeColor()
+        
+        let delete = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
+            self.subscribedFeedManager.deleteObjectAtIndex(indexPath)
+            self.subscribedFeedManager.save()
+        }
+        delete.backgroundColor = UIColor.redColor()
+        return [refresh, delete]
+    }
+    
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        subscribedFeedManager.deleteObjectAtIndex(indexPath)
+        //subscribedFeedManager.deleteObjectAtIndex(indexPath)
     }
     
     func controllerWillChangeContent(controller: NSFetchedResultsController) {

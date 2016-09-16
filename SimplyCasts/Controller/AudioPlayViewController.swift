@@ -34,6 +34,8 @@ class AudioPlayViewController: UIViewController, AudioPlayerDelegate {
     @IBOutlet weak var nextButton: UIButton!
     
     @IBAction func previous(sender: AnyObject) {
+        player.previous()
+        updateUI()
     }
     
     @IBAction func rewind(sender: AnyObject) {
@@ -41,17 +43,11 @@ class AudioPlayViewController: UIViewController, AudioPlayerDelegate {
     }
     
     @IBAction func play(sender: AnyObject) {
-        
-        
-        switch player.state {
-        case .Playing:
+        if player.state == .Playing {
             player.pause()
-        case .Paused:
+        } else {
             player.resume()
-        default:
-            player.play()
         }
-
         updatePlayButton()
     }
     
@@ -60,22 +56,32 @@ class AudioPlayViewController: UIViewController, AudioPlayerDelegate {
     }
     
     @IBAction func next(sender: AnyObject) {
+        player.next()
+        updateUI()
     }
 
+    @IBAction func sliderValueChanged(sender: AnyObject) {
+        if let currentItemDuration = player.currentItemDuration {
+            player.seekToTime(Double(progressSlider.value / 100) * currentItemDuration )
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let feedItem = player.feedItem {
-            
-            player.delegate = self
-            
-            setupUI(feedItem)
+        player.delegate = self
+        updateUI()
+    }
+    
+    private func updateUI() {
+        if let feedItem = player.getCurrentFeedItem() {
+            setupControls(feedItem)
             updatePlayButton()
             setupSlider(feedItem)
         }
     }
     
-    private func setupUI(feedItem: FeedItem) {
+    private func setupControls(feedItem: FeedItem) {
         feedTitleLabel.text = feedItem.feed?.title
         
         if let data = feedItem.feed?.iTunesImage {
@@ -96,11 +102,8 @@ class AudioPlayViewController: UIViewController, AudioPlayerDelegate {
                 
                 let range = NSMakeRange(0, newAttributedString.length)
                 
-                newAttributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.darkGrayColor(), range: range)
-                newAttributedString.addAttribute(NSFontAttributeName, value: UIFont.systemFontOfSize(18), range: range)
-                newAttributedString.addAttribute(NSStrokeColorAttributeName, value: UIColor.whiteColor(), range: range)
-                newAttributedString.addAttribute(NSStrokeWidthAttributeName, value: -4, range: range)
-                
+                newAttributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.blackColor(), range: range)
+                newAttributedString.addAttribute(NSFontAttributeName, value: UIFont.systemFontOfSize(20), range: range)                
                 feedItemDescriptionTextView.attributedText = newAttributedString
             }
         }
@@ -140,7 +143,12 @@ class AudioPlayViewController: UIViewController, AudioPlayerDelegate {
     }
     
     func audioPlayer(audioPlayer: AudioPlayer, didChangeStateFrom from: AudioPlayerState, toState to: AudioPlayerState) {
+        Logger.log.debug("from \(from) to \(to)")
         updatePlayButton()
+    }
+    
+    func audioPlayer(audioPlayer: AudioPlayer, willStartPlayingItem item: AudioItem) {
+        updateUI()
     }
     
     private func stringFromTimeInterval(interval:NSTimeInterval) -> String {

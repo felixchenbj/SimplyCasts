@@ -222,6 +222,54 @@ class FeedHelper {
         return element?[attributeName]
     }
     
+    static func refreshFeed(feed: Feed, context: NSManagedObjectContext) {
+        if let feedURL = feed.feedURL {
+            let feedInfo = parserFeedInfoFromURL(feedURL)
+            var newPubDate = feedInfo?.pubDate
+            if newPubDate == nil {
+                newPubDate = feedInfo?.items?.first?.pubDate
+            }
+            guard newPubDate != nil else {
+                Logger.log.error("refreshFeed: there is no publish date in the feed geting from url.")
+                return
+            }
+            
+            var oldPubDate = feed.publishDate
+            if oldPubDate == nil {
+                oldPubDate = (feed.items?.firstObject as? FeedItem)?.pubDate
+            }
+            
+            guard oldPubDate != nil else {
+                Logger.log.error("refreshFeed: there is no publish date in the exisiting feed.")
+                return
+            }
+            
+            // need to be refreshed
+            if oldPubDate!.compare(newPubDate!) == .OrderedAscending {
+                feedInfo?.items
+            }
+            
+            var index = 1
+            while oldPubDate!.compare(newPubDate!) == .OrderedAscending {
+                let feedItem = FeedItem(context: context)
+                
+                feedItem
+                feedInfo?.items?[index]
+                
+                index += 1
+                if index == (feedInfo?.items?.count)! {
+                    break
+                }
+                newPubDate = feedInfo?.items?[index].pubDate
+                if newPubDate == nil {
+                    break
+                }
+            }
+            
+            
+        }
+    }
+    
     static func needUpdateFeed(feed: Feed) -> Bool{
         if let link = feed.link {
             if let feedInfo = parserFeedInfoFromURL(link) {
@@ -276,7 +324,6 @@ class FeedHelper {
                                 }
                                 
                                 completionHandler?(info: "Get search results!", results: feeds, success: true)
-                                
         }
     }
     

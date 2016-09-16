@@ -14,7 +14,7 @@ class SubscribedFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var ownerLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
+
     var stack: CoreDataStack?
     
     var feed: Feed? {

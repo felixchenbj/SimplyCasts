@@ -36,12 +36,14 @@ class FeedDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let storyboard = UIStoryboard (name: "Main", bundle: nil)
-        let resultVC = storyboard.instantiateViewControllerWithIdentifier("AudioPlayViewController") as! AudioPlayViewController
-        
-        FeedItemAudioPlayer.sharedAudioPlayer.feedItem = subscribedFeedItemManager?.getObjectAtIndex(indexPath) as? FeedItem
-        
-        self.navigationController?.pushViewController(resultVC, animated: true)
+        if let feed = feed {
+            let storyboard = UIStoryboard (name: "Main", bundle: nil)
+            let resultVC = storyboard.instantiateViewControllerWithIdentifier("AudioPlayViewController") as! AudioPlayViewController
+
+            FeedItemAudioPlayer.sharedAudioPlayer.initDataAndStartToPlay(feed, startIndex: indexPath.row)
+            
+            self.navigationController?.pushViewController(resultVC, animated: true)
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -55,7 +57,7 @@ class FeedDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
         
-        if indexPath.row == currentItemsCountInTableView - 1 {
+        if indexPath.row == currentItemsCountInTableView - 1{
             Logger.log.debug("Load more data from core data. Data count before loading is \(self.currentItemsCountInTableView)")
             currentItemsCountInTableView += Constants.RowCountToLoadForTable
             tableView.reloadData()
@@ -63,9 +65,8 @@ class FeedDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
         cell.layer.cornerRadius = 4.0
         cell.layer.masksToBounds = true
-        cell.layer.borderWidth = 1.0
+        cell.layer.borderWidth = 2.0
         cell.layer.borderColor = tableView.backgroundColor?.CGColor
-        
         return cell
     }
     
@@ -96,11 +97,8 @@ class FeedDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 let range = NSMakeRange(0, newAttributedString.length)
                 
-                newAttributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.darkGrayColor(), range: range)
-                newAttributedString.addAttribute(NSFontAttributeName, value: UIFont.systemFontOfSize(18), range: range)
-                newAttributedString.addAttribute(NSStrokeColorAttributeName, value: UIColor.whiteColor(), range: range)
-                newAttributedString.addAttribute(NSStrokeWidthAttributeName, value: -4, range: range)
-                
+                newAttributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.blackColor(), range: range)
+                newAttributedString.addAttribute(NSFontAttributeName, value: UIFont.systemFontOfSize(20), range: range)                
                 feedDescription.attributedText = newAttributedString
             }
         }

@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let stack = CoreDataStack(modelName: "Model")!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        UIApplication.sharedApplication().beginReceivingRemoteControlEvents()
         return true
     }
 
@@ -46,9 +46,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     override func remoteControlReceivedWithEvent(event: UIEvent?) {
-        let rc = event!.subtype
-        
-        print("received remote control \(rc.rawValue)")
+        if let event = event {
+            FeedItemAudioPlayer.sharedAudioPlayer.remoteControlReceivedWithEvent(event)
+        }
     }
 
 }

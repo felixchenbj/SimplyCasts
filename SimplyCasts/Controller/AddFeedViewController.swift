@@ -35,7 +35,7 @@ class AddFeedViewController: UIViewController, UITableViewDelegate, UITableViewD
         activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
         activityIndicator.center = self.view.center
         activityIndicator.backgroundColor = UIColor.grayColor()
-        activityIndicator.layer.cornerRadius = 3.0
+        activityIndicator.layer.cornerRadius = 5.0
         activityIndicator.layer.masksToBounds = true
         
         self.view.addSubview(activityIndicator)
@@ -67,21 +67,25 @@ class AddFeedViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
 
         let subscribe = UITableViewRowAction(style: .Normal, title: "Subscribe") { action, index in
-            self.activityIndicator.startAnimating()
+            FunctionsHelper.performUIUpdatesOnMain({
+                tableView.editing = false
+                self.activityIndicator.startAnimating()
+            })
+            
             let feedInfo = self.searchResults[indexPath.row]
             
-            self.subscribedFeedManager.subscribeNewFeed( feedInfo, completionHandler: { (feed, info, success) in
-                FunctionsHelper.performUIUpdatesOnMain({
-                    self.activityIndicator.stopAnimating()
-                    tableView.editing = false
+            FunctionsHelper.performTasksOnBackground({
+                self.subscribedFeedManager.subscribeNewFeed( feedInfo, completionHandler: { (feed, info, success) in
+                    FunctionsHelper.performUIUpdatesOnMain({
+                        self.activityIndicator.stopAnimating()
+                        if success {
+                            FunctionsHelper.popupAnOKAlert(self, title: "Subscribe", message: "Successfully!", handler: nil)
+                            self.subscribedFeedManager.save()
+                        } else {
+                            FunctionsHelper.popupAnOKAlert(self, title: "Subscribe", message: "Failed!", handler: nil)
+                        }
+                    })
                 })
-                
-                if success {
-                    FunctionsHelper.popupAnOKAlert(self, title: "Subscribe", message: "Successfully!", handler: nil)
-                    self.subscribedFeedManager.save()
-                } else {
-                    FunctionsHelper.popupAnOKAlert(self, title: "Subscribe", message: "Failed!", handler: nil)
-                }
             })
         }
         subscribe.backgroundColor = UIColor.orangeColor()

@@ -25,6 +25,8 @@ class MiniPlayerToolbar: UIView, AudioPlayerDelegate {
     @IBOutlet weak var playButton: RoundButton!
     
     @IBAction func previous(sender: AnyObject) {
+        player.previous()
+        updateUI()
     }
     
     @IBAction func rewind(sender: AnyObject) {
@@ -32,16 +34,15 @@ class MiniPlayerToolbar: UIView, AudioPlayerDelegate {
     }
     
     @IBAction func play(sender: AnyObject) {
-        switch player.state {
-        case .Playing:
-            player.pause()
-        case .Paused:
-            player.resume()
-        default:
-            player.play()
+        if let _ = player.getCurrentFeedItem() {
+            if player.state == .Playing {
+                player.pause()
+            } else {
+                player.resume()
+            }
+            
+            updatePlayButton()
         }
-        
-        updatePlayButton()
     }
     
     @IBAction func fastForward(sender: AnyObject) {
@@ -49,13 +50,23 @@ class MiniPlayerToolbar: UIView, AudioPlayerDelegate {
     }
     
     @IBAction func next(sender: AnyObject) {
+        player.next()
+        updateUI()
     }
     
     // MUST be called before use the miniplayer
     func setupMiniPlayer() {
-        player.delegate = self
+        updateUI()
         
-        if let feedItem = player.feedItem {
+        player.delegate = self
+
+        feedItemImageView.userInteractionEnabled = true
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MiniPlayerToolbar.imageTapped))
+        feedItemImageView.addGestureRecognizer(tapRecognizer)
+    }
+    
+    func updateUI() {
+        if let feedItem = player.getCurrentFeedItem() {
             if let data = feedItem.feed?.iTunesImage {
                 feedItemImageView.image = UIImage(data: data)
             }
@@ -65,11 +76,7 @@ class MiniPlayerToolbar: UIView, AudioPlayerDelegate {
         if let currentProgression = player.currentItemProgression, duration = player.currentItemDuration {
             progressView.progress = Float(currentProgression / duration)
         }
-        feedItemTitle.text = player.feedItem?.title
-        
-        feedItemImageView.userInteractionEnabled = true
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MiniPlayerToolbar.imageTapped))
-        feedItemImageView.addGestureRecognizer(tapRecognizer)
+        feedItemTitle.text = player.getCurrentFeedItem()?.title
     }
     
     func imageTapped() {
@@ -83,7 +90,14 @@ class MiniPlayerToolbar: UIView, AudioPlayerDelegate {
     }
     
     func audioPlayer(audioPlayer: AudioPlayer, didChangeStateFrom from: AudioPlayerState, toState to: AudioPlayerState) {
+        Logger.log.debug("from \(from) to \(to)")
         updatePlayButton()
+    }
+    
+    func audioPlayer(audioPlayer: AudioPlayer, willStartPlayingItem item: AudioItem) {
+        if let feedItem = player.getCurrentFeedItem() {
+            delegate?.miniPlayerToolbar(self, willStartPlayingItem: feedItem)
+        }
     }
     
     func updatePlayButton() {
@@ -121,4 +135,14 @@ class MiniPlayerToolbar: UIView, AudioPlayerDelegate {
 
 protocol MiniPlayerToolbarDelegate {
     func miniPlayerToolbar(miniPlayerToolbar: MiniPlayerToolbar, tappedImageView: UIImageView)
+    func miniPlayerToolbar(miniPlayerToolbar: MiniPlayerToolbar, willStartPlayingItem item: FeedItem)
+}
+
+extension MiniPlayerToolbarDelegate {
+    func miniPlayerToolbar(miniPlayerToolbar: MiniPlayerToolbar, tappedImageView: UIImageView) {
+        
+    }
+    func miniPlayerToolbar(miniPlayerToolbar: MiniPlayerToolbar, willStartPlayingItem item: FeedItem) {
+        
+    }
 }

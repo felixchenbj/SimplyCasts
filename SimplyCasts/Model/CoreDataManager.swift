@@ -58,6 +58,13 @@ class CoreDataManager {
         }
     }
     
+    func deleteObject(object: AnyObject) {
+        if let context = fetchedResultsController?.managedObjectContext,
+            _ = indexOfObject(object) {
+            context.deleteObject(object as! NSManagedObject)
+        }
+    }
+    
     func indexOfObject(object: AnyObject) -> NSIndexPath? {
         return fetchedResultsController?.indexPathForObject(object)
     }

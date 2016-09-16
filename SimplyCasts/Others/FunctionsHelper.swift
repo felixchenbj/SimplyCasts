@@ -17,6 +17,14 @@ struct FunctionsHelper {
         }
     }
     
+    static func performTasksOnBackground(updates: () -> Void) {
+        let qualityOfServiceClass = QOS_CLASS_BACKGROUND
+        let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
+        dispatch_async(backgroundQueue, {
+            updates()
+        })
+    }
+    
     static func popupAnOKAlert(viewController: UIViewController,title:String, message:String, handler: ((UIAlertAction) -> Void)?) {
         let controller = UIAlertController()
         controller.title = title
