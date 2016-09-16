@@ -231,11 +231,23 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nothing found!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8o-eQ-aE6">
+                                <rect key="frame" x="-4" y="365" width="387" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Mws-eO-wrf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="6Me-lK-zK1" firstAttribute="leading" secondItem="fkx-Qv-RGm" secondAttribute="leadingMargin" constant="-20" id="6gZ-ST-c0G"/>
                             <constraint firstItem="HEe-vB-FOC" firstAttribute="leading" secondItem="fkx-Qv-RGm" secondAttribute="leadingMargin" constant="-20" id="CtD-Xv-CfB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HEe-vB-FOC" secondAttribute="trailing" constant="-20" id="Kaq-GC-QOz"/>
+                            <constraint firstItem="l8o-eQ-aE6" firstAttribute="centerY" secondItem="HEe-vB-FOC" secondAttribute="centerY" id="VuW-wx-GZz"/>
+                            <constraint firstItem="l8o-eQ-aE6" firstAttribute="leading" secondItem="fkx-Qv-RGm" secondAttribute="leadingMargin" constant="-20" id="Y26-VW-g5F"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="l8o-eQ-aE6" secondAttribute="trailing" constant="-24" id="ZT4-6t-7xK"/>
                             <constraint firstItem="HEe-vB-FOC" firstAttribute="top" secondItem="6Me-lK-zK1" secondAttribute="bottom" id="fSf-I6-OlP"/>
                             <constraint firstItem="PzR-A0-KIK" firstAttribute="top" secondItem="HEe-vB-FOC" secondAttribute="bottom" id="mKk-Er-mXq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6Me-lK-zK1" secondAttribute="trailing" constant="-20" id="oiS-of-q9s"/>
@@ -244,6 +256,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="nothingFoundLabel" destination="l8o-eQ-aE6" id="QIy-yq-FJX"/>
                         <outlet property="searchBar" destination="6Me-lK-zK1" id="Qmf-wN-6if"/>
                         <outlet property="searchDisplayController" destination="40y-Cs-qjs" id="27f-48-Jbo"/>
                         <outlet property="tableView" destination="HEe-vB-FOC" id="p0B-Md-ygc"/>

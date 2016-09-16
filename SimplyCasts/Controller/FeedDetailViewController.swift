@@ -21,6 +21,8 @@ class FeedDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var stack: CoreDataStack!
     
+    var currentItemsCountInTableView: Int = 0
+    
     weak var feed: Feed? {
         didSet {
             if let feed = feed {
@@ -30,10 +32,7 @@ class FeedDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let subscribedFeedItemManager = subscribedFeedItemManager {
-            return subscribedFeedItemManager.fetchedObjectsCount()
-        }
-        return 0
+        return currentItemsCountInTableView
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -55,12 +54,23 @@ class FeedDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                 cell.detailTextLabel?.attributedText = item.itemDescription?.utf8Data?.attributedString
             }
         }
+        
+        if indexPath.row == currentItemsCountInTableView - 1 {
+            Logger.log.debug("Load more data from core data. Data count before loading is \(self.currentItemsCountInTableView)")
+            currentItemsCountInTableView += Constants.RowCountToLoadForTable
+            tableView.reloadData()
+        }
+        
         cell.layer.cornerRadius = 4.0
         cell.layer.masksToBounds = true
         cell.layer.borderWidth = 1.0
         cell.layer.borderColor = tableView.backgroundColor?.CGColor
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
     }
     
     func miniPlayerToolbar(miniPlayerToolbar: MiniPlayerToolbar, tappedImageView: UIImageView) {
@@ -101,7 +111,16 @@ class FeedDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
         if let subscribedFeedItemManager = subscribedFeedItemManager {
             subscribedFeedItemManager.executeSearch()
+            
+            if subscribedFeedItemManager.fetchedObjectsCount() <= Constants.RowCountToLoadForTable {
+                currentItemsCountInTableView = subscribedFeedItemManager.fetchedObjectsCount()
+            } else {
+                currentItemsCountInTableView = Constants.RowCountToLoadForTable
+            }
+            
             tableView.reloadData()
+        } else {
+            currentItemsCountInTableView = 0
         }
         miniPlayerToolbar.setupMiniPlayer()
         miniPlayerToolbar.delegate = self

@@ -33,4 +33,6 @@ struct Constants {
     
     
     static let AudioPlayer_Step = 10
+    
+    static let RowCountToLoadForTable = 10
 }

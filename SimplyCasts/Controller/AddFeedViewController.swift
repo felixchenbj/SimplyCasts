@@ -13,6 +13,7 @@ class AddFeedViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var nothingFoundLabel: UILabel!
     
     var activityIndicator: UIActivityIndicatorView!
     
@@ -29,9 +30,14 @@ class AddFeedViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         searchBar.showsCancelButton = true
         
+        nothingFoundLabel.hidden = true
+        
         activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
         activityIndicator.center = self.view.center
         activityIndicator.backgroundColor = UIColor.grayColor()
+        activityIndicator.layer.cornerRadius = 3.0
+        activityIndicator.layer.masksToBounds = true
+        
         self.view.addSubview(activityIndicator)
         activityIndicator.stopAnimating()
         
@@ -59,9 +65,9 @@ class AddFeedViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        activityIndicator.startAnimating()
+
         let subscribe = UITableViewRowAction(style: .Normal, title: "Subscribe") { action, index in
-            
+            self.activityIndicator.startAnimating()
             let feedInfo = self.searchResults[indexPath.row]
             
             self.subscribedFeedManager.subscribeNewFeed( feedInfo, completionHandler: { (feed, info, success) in
@@ -77,8 +83,6 @@ class AddFeedViewController: UIViewController, UITableViewDelegate, UITableViewD
                     FunctionsHelper.popupAnOKAlert(self, title: "Subscribe", message: "Failed!", handler: nil)
                 }
             })
-            
-
         }
         subscribe.backgroundColor = UIColor.orangeColor()
         return [subscribe]
@@ -91,15 +95,22 @@ class AddFeedViewController: UIViewController, UITableViewDelegate, UITableViewD
         searchBar.resignFirstResponder()
         
         if !searchBar.text!.isEmpty {
+            activityIndicator.startAnimating()
             FeedHelper.searchFeed(searchBar.text!) { (info, results, success) in
                 FunctionsHelper.performUIUpdatesOnMain({
                     if success {
                         if let results = results {
                             self.searchResults.removeAll()
                             
-                            print(results.count)
+                            Logger.log.debug("Found \(results.count) podcast.")
                             self.searchResults = results
                             
+                            if results.count == 0 {
+                                self.nothingFoundLabel.hidden = false
+                            } else {
+                                self.nothingFoundLabel.hidden = true
+                            }
+                            self.activityIndicator.stopAnimating()
                             self.tableView.reloadData()
                         }
                     }
@@ -111,5 +122,6 @@ class AddFeedViewController: UIViewController, UITableViewDelegate, UITableViewD
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         searchBar.text = ""
         searchBar.resignFirstResponder()
+        nothingFoundLabel.hidden = true
     }
 }
