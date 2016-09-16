@@ -32,7 +32,7 @@ class MiniPlayerToolbar: UIView, AudioPlayerDelegate {
     }
     
     @IBAction func play(sender: AnyObject) {
-        
+        player.play()
     }
     
     @IBAction func fastForward(sender: AnyObject) {

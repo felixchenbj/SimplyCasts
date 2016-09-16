@@ -22,7 +22,7 @@ class SubscribedFeedItemManager: CoreDataManager {
         let pred = NSPredicate(format: "feed = %@", argumentArray: [feed])
         
         fr.predicate = pred
-        fr.sortDescriptors = [NSSortDescriptor(key: "pubDate", ascending: true)]
+        fr.sortDescriptors = [NSSortDescriptor(key: "pubDate", ascending: false)]
         
         // Create the FetchedResultsController
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fr,
