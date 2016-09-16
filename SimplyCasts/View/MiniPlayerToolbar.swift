@@ -32,7 +32,16 @@ class MiniPlayerToolbar: UIView, AudioPlayerDelegate {
     }
     
     @IBAction func play(sender: AnyObject) {
-        player.play()
+        switch player.state {
+        case .Playing:
+            player.pause()
+        case .Paused:
+            player.resume()
+        default:
+            player.play()
+        }
+        
+        updatePlayButton()
     }
     
     @IBAction func fastForward(sender: AnyObject) {

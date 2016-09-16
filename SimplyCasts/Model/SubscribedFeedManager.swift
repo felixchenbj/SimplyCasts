@@ -52,7 +52,6 @@ class SubscribedFeedManager: CoreDataManager {
                 }
             }
         }
-        
         return false
     }
 }
