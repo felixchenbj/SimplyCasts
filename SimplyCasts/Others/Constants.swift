@@ -30,4 +30,7 @@ struct Constants {
                                 "http://www.bbc.co.uk/programmes/p02pnn9d/episodes/downloads.rss",
                                 "http://feed.thisamericanlife.org/talpodcast?format=xml"
                                 ]
+    
+    
+    static let AudioPlayer_Step = 10
 }

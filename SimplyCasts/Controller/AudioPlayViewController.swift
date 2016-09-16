@@ -10,7 +10,6 @@ import UIKit
 import KDEAudioPlayer
 
 class AudioPlayViewController: UIViewController, AudioPlayerDelegate {
-    //var feedItem: FeedItem?
     var player = FeedItemAudioPlayer.sharedAudioPlayer
     
     var playImage = UIImage(named: "play")
@@ -38,7 +37,7 @@ class AudioPlayViewController: UIViewController, AudioPlayerDelegate {
     }
     
     @IBAction func rewind(sender: AnyObject) {
-        player.rewind(10)
+        player.rewind(Constants.AudioPlayer_Step)
     }
     
     @IBAction func play(sender: AnyObject) {
@@ -57,7 +56,7 @@ class AudioPlayViewController: UIViewController, AudioPlayerDelegate {
     }
     
     @IBAction func fastForward(sender: AnyObject) {
-        player.fastForward(10)
+        player.fastForward(Constants.AudioPlayer_Step)
     }
     
     @IBAction func next(sender: AnyObject) {

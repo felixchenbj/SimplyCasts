@@ -9,12 +9,19 @@
 import UIKit
 import CoreData
 
-class SubscribedFeedViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class SubscribedFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, MiniPlayerToolbarDelegate {
+
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var miniPlayerToolbar: MiniPlayerToolbar!
 
     var subscribedFeedManager: SubscribedFeedManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
         
         subscribedFeedManager = SubscribedFeedManager()
         subscribedFeedManager.setDelegate(self)
@@ -25,13 +32,23 @@ class SubscribedFeedViewController: UITableViewController, NSFetchedResultsContr
         
         subscribedFeedManager.executeSearch()
         tableView.reloadData()
+        
+        miniPlayerToolbar.setupMiniPlayer()
+        miniPlayerToolbar.delegate = self
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func miniPlayerToolbar(miniPlayerToolbar: MiniPlayerToolbar, tappedImageView: UIImageView) {
+        let storyboard = UIStoryboard (name: "Main", bundle: nil)
+        let resultVC = storyboard.instantiateViewControllerWithIdentifier("AudioPlayViewController") as! AudioPlayViewController
+        
+        self.navigationController?.pushViewController(resultVC, animated: true)
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return subscribedFeedManager.fetchedObjectsCount()
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let storyboard = UIStoryboard (name: "Main", bundle: nil)
         let resultVC = storyboard.instantiateViewControllerWithIdentifier("FeedDetailViewController") as! FeedDetailViewController
         resultVC.feed = subscribedFeedManager.getObjectAtIndex(indexPath) as? Feed
@@ -39,7 +56,7 @@ class SubscribedFeedViewController: UITableViewController, NSFetchedResultsContr
         self.navigationController?.pushViewController(resultVC, animated: true)
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCellWithIdentifier("subscribedFeedTableViewCell", forIndexPath: indexPath) as! SubscribedFeedTableViewCell
         
@@ -55,15 +72,15 @@ class SubscribedFeedViewController: UITableViewController, NSFetchedResultsContr
         return cell
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
     
-    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
             return 80.0
     }
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         subscribedFeedManager.deleteObjectAtIndex(indexPath)
     }
     
@@ -113,7 +130,6 @@ class SubscribedFeedViewController: UITableViewController, NSFetchedResultsContr
             tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
             tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
         }
-        
     }
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {

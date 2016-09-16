@@ -9,12 +9,12 @@
 import UIKit
 import CoreData
 
-class FeedDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FeedDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MiniPlayerToolbarDelegate {
     @IBOutlet weak var feedImageView: UIImageView!
     @IBOutlet weak var feedDescription: UITextView!
-    @IBOutlet weak var subscribeSwitch: UISwitch!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var miniPlayerToolbar: MiniPlayerToolbar!
     var subscribedFeedItemManager: SubscribedFeedItemManager?
     
     var fetchedResultsController: NSFetchedResultsController?
@@ -29,16 +29,6 @@ class FeedDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    @IBAction func subscribeSwitchChanged(sender: UISwitch) {
-        
-        if sender.on {
-            
-        } else {
-            
-        }
-    }
-    
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let subscribedFeedItemManager = subscribedFeedItemManager {
             return subscribedFeedItemManager.fetchedObjectsCount()
@@ -49,7 +39,6 @@ class FeedDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let storyboard = UIStoryboard (name: "Main", bundle: nil)
         let resultVC = storyboard.instantiateViewControllerWithIdentifier("AudioPlayViewController") as! AudioPlayViewController
-        //resultVC.feedItem = subscribedFeedItemManager?.getObjectAtIndex(indexPath) as? FeedItem
         
         FeedItemAudioPlayer.sharedAudioPlayer.feedItem = subscribedFeedItemManager?.getObjectAtIndex(indexPath) as? FeedItem
         
@@ -73,6 +62,13 @@ class FeedDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
         return cell
     }
+    
+    func miniPlayerToolbar(miniPlayerToolbar: MiniPlayerToolbar, tappedImageView: UIImageView) {
+        let storyboard = UIStoryboard (name: "Main", bundle: nil)
+        let resultVC = storyboard.instantiateViewControllerWithIdentifier("AudioPlayViewController") as! AudioPlayViewController
+        
+        self.navigationController?.pushViewController(resultVC, animated: true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,18 +87,13 @@ class FeedDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                 let range = NSMakeRange(0, newAttributedString.length)
                 
                 newAttributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.darkGrayColor(), range: range)
-                
                 newAttributedString.addAttribute(NSFontAttributeName, value: UIFont.systemFontOfSize(18), range: range)
-                
                 newAttributedString.addAttribute(NSStrokeColorAttributeName, value: UIColor.whiteColor(), range: range)
-                
                 newAttributedString.addAttribute(NSStrokeWidthAttributeName, value: -4, range: range)
                 
                 feedDescription.attributedText = newAttributedString
             }
         }
-
-        subscribeSwitch.on = true
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -112,5 +103,7 @@ class FeedDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             subscribedFeedItemManager.executeSearch()
             tableView.reloadData()
         }
+        miniPlayerToolbar.setupMiniPlayer()
+        miniPlayerToolbar.delegate = self
     }
 }

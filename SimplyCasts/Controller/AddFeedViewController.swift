@@ -31,6 +31,7 @@ class AddFeedViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
         activityIndicator.center = self.view.center
+        activityIndicator.backgroundColor = UIColor.grayColor()
         self.view.addSubview(activityIndicator)
         activityIndicator.stopAnimating()
         

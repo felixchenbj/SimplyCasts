@@ -10,6 +10,7 @@
 		1D0F68C1953A6EEE9F523475 /* Pods_SimplyCasts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55583BC34D667DA042DB3CA /* Pods_SimplyCasts.framework */; };
 		DC0CF5761D8A956500C53A05 /* RoundButtonWithLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0CF5751D8A956500C53A05 /* RoundButtonWithLoading.swift */; };
 		DC0CF5781D8AA07100C53A05 /* MiniPlayerToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC0CF5771D8AA07100C53A05 /* MiniPlayerToolbar.xib */; };
+		DC0CF57C1D8AA62F00C53A05 /* MiniPlayerToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0CF57B1D8AA62F00C53A05 /* MiniPlayerToolbar.swift */; };
 		DC39E3B81D7057520043EAE8 /* FeedHelperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3B71D7057520043EAE8 /* FeedHelperTest.swift */; };
 		DC39E3C51D705BC50043EAE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3BF1D705BC50043EAE8 /* AppDelegate.swift */; };
 		DC39E3C61D705BC50043EAE8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39E3C01D705BC50043EAE8 /* Constants.swift */; };
@@ -58,6 +59,7 @@
 		B55583BC34D667DA042DB3CA /* Pods_SimplyCasts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimplyCasts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC0CF5751D8A956500C53A05 /* RoundButtonWithLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButtonWithLoading.swift; sourceTree = "<group>"; };
 		DC0CF5771D8AA07100C53A05 /* MiniPlayerToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MiniPlayerToolbar.xib; sourceTree = "<group>"; };
+		DC0CF57B1D8AA62F00C53A05 /* MiniPlayerToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniPlayerToolbar.swift; sourceTree = "<group>"; };
 		DC39E3B71D7057520043EAE8 /* FeedHelperTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedHelperTest.swift; sourceTree = "<group>"; };
 		DC39E3BF1D705BC50043EAE8 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC39E3C01D705BC50043EAE8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				DCEB396D1D86EBF4006AE1D3 /* SubscribedFeedTableViewCell.swift */,
 				DCEB39721D88526A006AE1D3 /* RoundButton.swift */,
 				DC0CF5751D8A956500C53A05 /* RoundButtonWithLoading.swift */,
+				DC0CF57B1D8AA62F00C53A05 /* MiniPlayerToolbar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				DC3C4BF11D7C17A8000168E9 /* Feed.swift in Sources */,
 				DC3C4BF41D7C17C9000168E9 /* FeedItem+CoreDataProperties.swift in Sources */,
 				DC9E35641D89AFC200D78952 /* FeedItemAudioPlayer.swift in Sources */,
+				DC0CF57C1D8AA62F00C53A05 /* MiniPlayerToolbar.swift in Sources */,
 				DC39E3CE1D705C5F0043EAE8 /* FeedHelper.swift in Sources */,
 				DC39E3C91D705BC50043EAE8 /* HTTPHelper.swift in Sources */,
 				DC39E3CF1D705C5F0043EAE8 /* Model.xcdatamodeld in Sources */,

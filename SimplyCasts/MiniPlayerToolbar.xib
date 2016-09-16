@@ -3,87 +3,140 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MiniPlayerToolbar" customModule="SimplyCasts" customModuleProvider="target">
+            <connections>
+                <outlet property="feedItemImageView" destination="gup-qK-qTe" id="DMk-R0-Pds"/>
+                <outlet property="feedItemTitle" destination="1HY-eL-z3c" id="d5H-mt-7Yn"/>
+                <outlet property="playButton" destination="Xqq-Ik-RKf" id="c2X-dU-puC"/>
+                <outlet property="progressView" destination="nDo-kb-u9m" id="Bbe-np-ZIG"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="360" height="60"/>
+            <rect key="frame" x="0.0" y="0.0" width="455" height="92"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ckd-Rq-wid">
-                    <rect key="frame" x="0.0" y="0.0" width="360" height="60"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="e1O-Kh-IQd">
+                    <rect key="frame" x="20" y="2" width="415" height="88"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gup-qK-qTe">
-                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="60" id="ITQ-D8-knY"/>
-                                <constraint firstAttribute="height" constant="60" id="JAD-Ps-ylN"/>
-                            </constraints>
-                        </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7xC-GE-pgs">
-                            <rect key="frame" x="80" y="10" width="40" height="40"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="40" id="4pp-8r-Po9"/>
-                                <constraint firstAttribute="width" constant="40" id="CT9-uS-5Wf"/>
-                            </constraints>
-                            <state key="normal" image="previous"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNA-3t-jEf">
-                            <rect key="frame" x="140" y="10" width="40" height="40"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="40" id="27U-3H-cIj"/>
-                                <constraint firstAttribute="width" constant="40" id="NQD-YU-EbR"/>
-                            </constraints>
-                            <state key="normal" image="rewind"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xqq-Ik-RKf">
-                            <rect key="frame" x="200" y="10" width="40" height="40"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="40" id="7jq-yc-vE7"/>
-                                <constraint firstAttribute="height" constant="40" id="wHW-yL-1Xf"/>
-                            </constraints>
-                            <state key="normal" image="play"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYt-va-Bjg">
-                            <rect key="frame" x="260" y="10" width="40" height="40"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="40" id="A2R-gD-hOO"/>
-                                <constraint firstAttribute="height" constant="40" id="WBb-HE-HJn"/>
-                            </constraints>
-                            <state key="normal" image="fast-forward"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXc-jN-Op9">
-                            <rect key="frame" x="320" y="10" width="40" height="40"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="40" id="M3t-y1-A8y"/>
-                                <constraint firstAttribute="height" constant="40" id="Rxc-Cz-JFB"/>
-                            </constraints>
-                            <state key="normal" image="next"/>
-                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1HY-eL-z3c">
+                            <rect key="frame" x="0.0" y="0.0" width="415" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="D18-6c-iYA">
+                            <rect key="frame" x="0.0" y="21" width="415" height="67"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="podcast" translatesAutoresizingMaskIntoConstraints="NO" id="gup-qK-qTe">
+                                    <rect key="frame" x="0.0" y="9" width="50" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="gup-qK-qTe" secondAttribute="height" multiplier="1:1" id="8a0-pf-l4j"/>
+                                        <constraint firstAttribute="height" constant="50" id="JAD-Ps-ylN"/>
+                                    </constraints>
+                                </imageView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9w1-A5-1Q6">
+                                    <rect key="frame" x="60" y="13" width="355" height="42"/>
+                                    <subviews>
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nDo-kb-u9m">
+                                            <rect key="frame" x="58" y="0.0" width="240" height="2"/>
+                                            <color key="trackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </progressView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nQI-WE-TC6">
+                                            <rect key="frame" x="58" y="2" width="240" height="40"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7xC-GE-pgs" customClass="RoundButton" customModule="SimplyCasts" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="4pp-8r-Po9"/>
+                                                        <constraint firstAttribute="width" constant="40" id="VPf-7l-3jU"/>
+                                                    </constraints>
+                                                    <state key="normal" image="previous"/>
+                                                    <connections>
+                                                        <action selector="previous:" destination="-1" eventType="touchUpInside" id="lol-7C-hp2"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNA-3t-jEf" customClass="RoundButton" customModule="SimplyCasts" customModuleProvider="target">
+                                                    <rect key="frame" x="50" y="0.0" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="27U-3H-cIj"/>
+                                                        <constraint firstAttribute="width" constant="40" id="NQD-YU-EbR"/>
+                                                    </constraints>
+                                                    <state key="normal" image="rewind"/>
+                                                    <connections>
+                                                        <action selector="rewind:" destination="-1" eventType="touchUpInside" id="8R5-h6-cLn"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xqq-Ik-RKf" customClass="RoundButton" customModule="SimplyCasts" customModuleProvider="target">
+                                                    <rect key="frame" x="100" y="0.0" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="7jq-yc-vE7"/>
+                                                        <constraint firstAttribute="height" constant="40" id="wHW-yL-1Xf"/>
+                                                    </constraints>
+                                                    <state key="normal" image="play"/>
+                                                    <connections>
+                                                        <action selector="play:" destination="-1" eventType="touchUpInside" id="xRb-u6-Ugx"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYt-va-Bjg" customClass="RoundButton" customModule="SimplyCasts" customModuleProvider="target">
+                                                    <rect key="frame" x="150" y="0.0" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="WBb-HE-HJn"/>
+                                                        <constraint firstAttribute="width" constant="40" id="t6h-k3-bzP"/>
+                                                    </constraints>
+                                                    <state key="normal" image="fast-forward"/>
+                                                    <connections>
+                                                        <action selector="fastForward:" destination="-1" eventType="touchUpInside" id="ept-50-MXE"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXc-jN-Op9" customClass="RoundButton" customModule="SimplyCasts" customModuleProvider="target">
+                                                    <rect key="frame" x="200" y="0.0" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="B5p-H1-d1y"/>
+                                                        <constraint firstAttribute="height" constant="40" id="Rxc-Cz-JFB"/>
+                                                    </constraints>
+                                                    <state key="normal" image="next"/>
+                                                    <connections>
+                                                        <action selector="next:" destination="-1" eventType="touchUpInside" id="hCO-Hk-GEJ"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="nDo-kb-u9m" firstAttribute="width" secondItem="nQI-WE-TC6" secondAttribute="width" id="L0V-7t-OJA"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
+                        </stackView>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="viD-Xg-Flw"/>
+                        <constraint firstItem="1HY-eL-z3c" firstAttribute="width" secondItem="D18-6c-iYA" secondAttribute="width" id="UE6-6h-JzM"/>
                     </constraints>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.86315125226974487" green="0.79798942804336548" blue="0.94941240549087524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Ckd-Rq-wid" secondAttribute="trailing" id="EIf-FX-ni8"/>
-                <constraint firstItem="Ckd-Rq-wid" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="W5w-ri-YYk"/>
-                <constraint firstItem="Ckd-Rq-wid" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bf0-OW-xmp"/>
+                <constraint firstAttribute="bottom" secondItem="e1O-Kh-IQd" secondAttribute="bottom" constant="2" id="a6M-tZ-RlD"/>
+                <constraint firstAttribute="trailing" secondItem="e1O-Kh-IQd" secondAttribute="trailing" constant="20" id="b0s-x3-GQv"/>
+                <constraint firstItem="e1O-Kh-IQd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="sBe-ot-saA"/>
+                <constraint firstItem="e1O-Kh-IQd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="2" id="v33-mg-MgC"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="84" y="496"/>
+            <point key="canvasLocation" x="117.5" y="225"/>
         </view>
     </objects>
     <resources>
         <image name="fast-forward" width="128" height="128"/>
         <image name="next" width="128" height="128"/>
         <image name="play" width="128" height="128"/>
+        <image name="podcast" width="120" height="120"/>
         <image name="previous" width="128" height="128"/>
         <image name="rewind" width="128" height="128"/>
     </resources>
