@@ -15,6 +15,9 @@ class AudioPlayViewController: UIViewController, AudioPlayerDelegate {
     var playImage = UIImage(named: "play")
     var pauseImage = UIImage(named: "pause")
     
+    var repeatAllImage = UIImage(named: "repeatAll")
+    var repeatImage = UIImage(named: "repeat")
+    
     @IBOutlet weak var feedTitleLabel: UILabel!
     @IBOutlet weak var feedImageView: UIImageView!
     @IBOutlet weak var feedItemDescriptionTextView: UITextView!
@@ -27,11 +30,13 @@ class AudioPlayViewController: UIViewController, AudioPlayerDelegate {
     
     @IBOutlet weak var progressSlider: UISlider!
     
-    @IBOutlet weak var previousButton: UIButton!
-    @IBOutlet weak var rewindButton: UIButton!
+    @IBOutlet weak var previousButton: RoundButton!
+    @IBOutlet weak var rewindButton: RoundButton!
     @IBOutlet weak var playButton: RoundButtonWithLoading!
-    @IBOutlet weak var fastForwardButton: UIButton!
-    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var fastForwardButton: RoundButton!
+    @IBOutlet weak var nextButton: RoundButton!
+    @IBOutlet weak var shuffleButton: RoundButton!
+    @IBOutlet weak var repeatModeButton: RoundButton!
     
     @IBAction func previous(sender: AnyObject) {
         player.previous()
@@ -66,6 +71,32 @@ class AudioPlayViewController: UIViewController, AudioPlayerDelegate {
         }
     }
     
+    @IBAction func shuffleButtonPressed(sender: RoundButton) {
+        if player.mode.contains(.Shuffle) {
+            player.mode.remove(.Shuffle)
+        } else {
+            player.mode.insert(.Shuffle)
+        }
+        
+        player.rebuildItemList()
+        
+        updateModeButtons()
+    }
+    
+    @IBAction func repeatModeButtonPressed(sender: RoundButton) {
+        if player.mode.contains(.RepeatAll) {
+            player.mode.remove(.RepeatAll)
+            player.mode.insert(.Repeat)
+        } else if player.mode.contains(.Repeat) {
+            player.mode.remove(.Repeat)
+        } else {
+            player.mode.insert(.RepeatAll)
+        }
+        
+        updateModeButtons()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -77,6 +108,7 @@ class AudioPlayViewController: UIViewController, AudioPlayerDelegate {
         if let feedItem = player.getCurrentFeedItem() {
             setupControls(feedItem)
             updatePlayButton()
+            updateModeButtons()
             setupSlider(feedItem)
         }
     }
@@ -124,17 +156,38 @@ class AudioPlayViewController: UIViewController, AudioPlayerDelegate {
         }
     }
     
+    private func updateModeButtons() {
+        if player.mode.contains(.Shuffle) {
+            shuffleButton.selected = true
+        } else {
+            shuffleButton.selected = false
+        }
+        
+        if player.mode.contains(.RepeatAll) {
+            repeatModeButton.setImage(repeatAllImage, forState: .Normal)
+            repeatModeButton.selected = true
+        } else if player.mode.contains(.Repeat) {
+            repeatModeButton.setImage(repeatImage, forState: .Normal)
+            repeatModeButton.selected = true
+        } else {
+            repeatModeButton.setImage(repeatAllImage, forState: .Normal)
+            repeatModeButton.selected = false
+        }
+    }
+    
     private func setupSlider(feedItem: FeedItem) {
         progressSlider.minimumValue = 0
         progressSlider.maximumValue = 100
         progressSlider.value = 0
         currentLabel.text = "00:00"
-        
+        totalLabel.text  = "00:00"
+        /*
         if let duration = feedItem.duration {
             totalLabel.text = stringFromTimeInterval(NSTimeInterval(duration))
         } else {
             totalLabel.text = stringFromTimeInterval(0)
         }
+ */
     }
     
     func audioPlayer(audioPlayer: AudioPlayer, didUpdateProgressionToTime time: NSTimeInterval, percentageRead: Float) {
@@ -149,6 +202,10 @@ class AudioPlayViewController: UIViewController, AudioPlayerDelegate {
     
     func audioPlayer(audioPlayer: AudioPlayer, willStartPlayingItem item: AudioItem) {
         updateUI()
+    }
+    
+    func audioPlayer(audioPlayer: AudioPlayer, didFindDuration duration: NSTimeInterval, forItem item: AudioItem) {
+        totalLabel.text = stringFromTimeInterval(NSTimeInterval(duration))
     }
     
     private func stringFromTimeInterval(interval:NSTimeInterval) -> String {

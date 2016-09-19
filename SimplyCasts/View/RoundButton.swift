@@ -12,11 +12,13 @@ class RoundButton: UIButton {
     
     override var highlighted: Bool {
         didSet {
-            if highlighted {
-                backgroundColor = UIColor(red: 0.298, green: 0.5137, blue: 0.7451, alpha: 1.0) 
-            } else {
-                backgroundColor = UIColor.clearColor()
-            }
+            updateBackgroundColor()
+        }
+    }
+    
+    override var selected: Bool {
+        didSet {
+            updateBackgroundColor()
         }
     }
     
@@ -31,5 +33,15 @@ class RoundButton: UIButton {
         }
         self.layer.cornerRadius = radius
         self.layer.masksToBounds = true
+    }
+    
+    private func updateBackgroundColor() {
+        if highlighted {
+            backgroundColor = UIColor(red: 0.298, green: 0.5137, blue: 0.7451, alpha: 1.0)
+        } else if selected {
+            backgroundColor = UIColor(red: 0.2745, green: 0.5529, blue: 0.9294, alpha: 1.0)
+        } else {
+            backgroundColor = UIColor.clearColor()
+        }
     }
 }
