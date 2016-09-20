@@ -9,7 +9,7 @@ Feature list:
 
 ## How to
 ### To search and subscribe
-![search and subscribe](https://github.com/showtheway/SimplyCasts/blob/master/play.gif)
+![search and subscribe](https://github.com/showtheway/SimplyCasts/blob/master/search-subscribe.gif)
 
 ### To play podcasts
 ![play](https://github.com/showtheway/SimplyCasts/blob/master/play.gif)
