@@ -9,8 +9,13 @@ Feature list:
 
 ## How to
 ### To search and subscribe
+![search and subscribe](https://github.com/showtheway/SimplyCasts/blob/master/play.gif)
+
 ### To play podcasts
+![play](https://github.com/showtheway/SimplyCasts/blob/master/play.gif)
+
 ### To refresh and unsubscribe 
+![refresh and unsubscribe](https://github.com/showtheway/SimplyCasts/blob/master/refresh-delete.gif)
 
 ## To build the project
 I tried to use CocoaPods to manage the libraries I used in this project. But it's my first time using it. I hope I did it right.
