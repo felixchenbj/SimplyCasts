@@ -12,17 +12,15 @@
                 <outlet property="feedItemTitle" destination="1HY-eL-z3c" id="d5H-mt-7Yn"/>
                 <outlet property="playButton" destination="Xqq-Ik-RKf" id="c2X-dU-puC"/>
                 <outlet property="progressView" destination="nDo-kb-u9m" id="Bbe-np-ZIG"/>
-                <outlet property="repeatModeButton" destination="WWQ-6y-aQf" id="r1k-05-jGT"/>
-                <outlet property="shuffleButton" destination="cTw-nC-tQJ" id="uE0-gS-F6t"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="370" height="107"/>
+            <rect key="frame" x="0.0" y="0.0" width="346" height="107"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="equalSpacing" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="20r-2w-gAe">
-                    <rect key="frame" x="20" y="5" width="330" height="97"/>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="20r-2w-gAe">
+                    <rect key="frame" x="20" y="5" width="306" height="97"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="podcast" translatesAutoresizingMaskIntoConstraints="NO" id="gup-qK-qTe">
                             <rect key="frame" x="0.0" y="24" width="50" height="50"/>
@@ -31,38 +29,11 @@
                                 <constraint firstAttribute="height" constant="50" id="JAD-Ps-ylN"/>
                             </constraints>
                         </imageView>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="zgv-YW-HHd">
-                            <rect key="frame" x="55" y="23" width="30" height="52"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTw-nC-tQJ" customClass="RoundButton" customModule="SimplyCasts" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="30" height="25"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="30" id="Des-Hn-fOm"/>
-                                        <constraint firstAttribute="height" constant="25" id="N2G-ci-yOx"/>
-                                    </constraints>
-                                    <state key="normal" image="shuffle"/>
-                                    <connections>
-                                        <action selector="shuffleButtonPressed:" destination="-1" eventType="touchUpInside" id="3FT-qT-C8d"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WWQ-6y-aQf" customClass="RoundButton" customModule="SimplyCasts" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="27" width="30" height="25"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="30" id="06m-ik-Zqd"/>
-                                        <constraint firstAttribute="height" constant="25" id="bQi-a6-Cxg"/>
-                                    </constraints>
-                                    <state key="normal" image="repeatAll"/>
-                                    <connections>
-                                        <action selector="repeatButtonPressed:" destination="-1" eventType="touchUpInside" id="JXl-zE-oal"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                        </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9w1-A5-1Q6">
-                            <rect key="frame" x="90" y="19" width="240" height="60"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9w1-A5-1Q6">
+                            <rect key="frame" x="53" y="19" width="253" height="60"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;title&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1HY-eL-z3c">
-                                    <rect key="frame" x="0.0" y="0.0" width="240" height="18"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="253" height="18"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="18" id="b5U-fq-Z0F"/>
                                     </constraints>
@@ -71,11 +42,11 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nDo-kb-u9m">
-                                    <rect key="frame" x="0.0" y="18" width="240" height="2"/>
+                                    <rect key="frame" x="0.0" y="18" width="253" height="2"/>
                                     <color key="trackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </progressView>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nQI-WE-TC6">
-                                    <rect key="frame" x="0.0" y="20" width="240" height="40"/>
+                                    <rect key="frame" x="0.0" y="20" width="253" height="40"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7xC-GE-pgs" customClass="RoundButton" customModule="SimplyCasts" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -89,7 +60,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNA-3t-jEf" customClass="RoundButton" customModule="SimplyCasts" customModuleProvider="target">
-                                            <rect key="frame" x="50" y="0.0" width="40" height="40"/>
+                                            <rect key="frame" x="53" y="0.0" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="27U-3H-cIj"/>
                                                 <constraint firstAttribute="width" constant="40" id="NQD-YU-EbR"/>
@@ -100,7 +71,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xqq-Ik-RKf" customClass="RoundButton" customModule="SimplyCasts" customModuleProvider="target">
-                                            <rect key="frame" x="100" y="0.0" width="40" height="40"/>
+                                            <rect key="frame" x="107" y="0.0" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="7jq-yc-vE7"/>
                                                 <constraint firstAttribute="height" constant="40" id="wHW-yL-1Xf"/>
@@ -111,7 +82,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYt-va-Bjg" customClass="RoundButton" customModule="SimplyCasts" customModuleProvider="target">
-                                            <rect key="frame" x="150" y="0.0" width="40" height="40"/>
+                                            <rect key="frame" x="160" y="0.0" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="WBb-HE-HJn"/>
                                                 <constraint firstAttribute="width" constant="40" id="t6h-k3-bzP"/>
@@ -122,7 +93,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXc-jN-Op9" customClass="RoundButton" customModule="SimplyCasts" customModuleProvider="target">
-                                            <rect key="frame" x="200" y="0.0" width="40" height="40"/>
+                                            <rect key="frame" x="213" y="0.0" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="B5p-H1-d1y"/>
                                                 <constraint firstAttribute="height" constant="40" id="Rxc-Cz-JFB"/>
@@ -154,7 +125,7 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="63" y="224.5"/>
+            <point key="canvasLocation" x="51" y="224.5"/>
         </view>
     </objects>
     <resources>
@@ -163,8 +134,6 @@
         <image name="play" width="128" height="128"/>
         <image name="podcast" width="120" height="120"/>
         <image name="previous" width="128" height="128"/>
-        <image name="repeatAll" width="100" height="100"/>
         <image name="rewind" width="128" height="128"/>
-        <image name="shuffle" width="100" height="100"/>
     </resources>
 </document>

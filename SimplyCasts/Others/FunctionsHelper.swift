@@ -41,7 +41,7 @@ extension NSData {
         do {
             return try NSAttributedString(data: self, options:[NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding], documentAttributes: nil)
         } catch let error as NSError {
-            print(error.localizedDescription)
+            Logger.log.error(error.localizedDescription)
         }
         return nil
     }

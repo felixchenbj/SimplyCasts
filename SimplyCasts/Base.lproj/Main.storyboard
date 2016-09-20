@@ -427,17 +427,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4a-7o-1vi" customClass="RoundButton" customModule="SimplyCasts" customModuleProvider="target">
-                                <rect key="frame" x="26" y="547" width="50" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="VEk-LZ-ebf"/>
-                                    <constraint firstAttribute="height" constant="40" id="r2X-M9-sEZ"/>
-                                </constraints>
-                                <state key="normal" image="shuffle"/>
-                                <connections>
-                                    <action selector="shuffleButtonPressed:" destination="KHJ-th-Za8" eventType="touchUpInside" id="2Oz-g3-IUu"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lx-S9-bE7" customClass="RoundButton" customModule="SimplyCasts" customModuleProvider="target">
                                 <rect key="frame" x="299" y="547" width="50" height="40"/>
                                 <constraints>
@@ -472,11 +461,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="194-5s-W3A" secondAttribute="trailing" id="ewR-UZ-0SI"/>
                             <constraint firstItem="khr-rf-q47" firstAttribute="top" secondItem="3zc-OI-OWi" secondAttribute="bottom" id="hg0-sS-FDh"/>
                             <constraint firstItem="QgM-YO-Yxi" firstAttribute="leading" secondItem="QDE-8V-wDj" secondAttribute="leadingMargin" constant="10" id="jWH-7O-dZV"/>
-                            <constraint firstItem="i4a-7o-1vi" firstAttribute="leading" secondItem="JK6-Sd-Evf" secondAttribute="leading" id="lFq-EM-DYD"/>
                             <constraint firstItem="XBd-Zr-10m" firstAttribute="top" secondItem="Mq2-MG-t7U" secondAttribute="bottom" constant="8" id="lhh-KV-FjH"/>
                             <constraint firstItem="3zc-OI-OWi" firstAttribute="leading" secondItem="QDE-8V-wDj" secondAttribute="leadingMargin" constant="-20" id="m66-kL-C2R"/>
                             <constraint firstAttribute="trailingMargin" secondItem="khr-rf-q47" secondAttribute="trailing" constant="-20" id="ng3-S0-k6A"/>
-                            <constraint firstItem="JK6-Sd-Evf" firstAttribute="top" secondItem="i4a-7o-1vi" secondAttribute="bottom" id="tlt-7U-1ss"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Uee-aF-iXC" secondAttribute="trailing" constant="-20" id="uPF-Vg-EkF"/>
                             <constraint firstItem="sY5-v0-c5j" firstAttribute="top" secondItem="1lx-S9-bE7" secondAttribute="bottom" id="v9U-li-Cpq"/>
                             <constraint firstItem="Uee-aF-iXC" firstAttribute="top" secondItem="TB1-50-irS" secondAttribute="bottom" id="vAd-Pt-fFv"/>
@@ -499,7 +486,6 @@
                         <outlet property="progressSlider" destination="194-5s-W3A" id="oTE-aX-YGd"/>
                         <outlet property="repeatModeButton" destination="1lx-S9-bE7" id="xl5-qB-Fyl"/>
                         <outlet property="rewindButton" destination="DnU-sA-PpR" id="yt3-xz-tJY"/>
-                        <outlet property="shuffleButton" destination="i4a-7o-1vi" id="ud9-u4-KPc"/>
                         <outlet property="totalLabel" destination="f9a-ud-THO" id="U3Q-5S-td8"/>
                     </connections>
                 </viewController>
@@ -628,7 +614,6 @@
         <image name="previous" width="128" height="128"/>
         <image name="repeat" width="100" height="100"/>
         <image name="rewind" width="128" height="128"/>
-        <image name="shuffle" width="100" height="100"/>
         <image name="swipe-left" width="128" height="128"/>
     </resources>
 </document>

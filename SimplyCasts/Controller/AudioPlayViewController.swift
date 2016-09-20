@@ -35,7 +35,6 @@ class AudioPlayViewController: UIViewController, AudioPlayerDelegate {
     @IBOutlet weak var playButton: RoundButtonWithLoading!
     @IBOutlet weak var fastForwardButton: RoundButton!
     @IBOutlet weak var nextButton: RoundButton!
-    @IBOutlet weak var shuffleButton: RoundButton!
     @IBOutlet weak var repeatModeButton: RoundButton!
     
     @IBAction func previous(sender: AnyObject) {
@@ -71,18 +70,6 @@ class AudioPlayViewController: UIViewController, AudioPlayerDelegate {
         }
     }
     
-    @IBAction func shuffleButtonPressed(sender: RoundButton) {
-        if player.mode.contains(.Shuffle) {
-            player.mode.remove(.Shuffle)
-        } else {
-            player.mode.insert(.Shuffle)
-        }
-        
-        player.rebuildItemList()
-        
-        updateModeButtons()
-    }
-    
     @IBAction func repeatModeButtonPressed(sender: RoundButton) {
         if player.mode.contains(.RepeatAll) {
             player.mode.remove(.RepeatAll)
@@ -95,7 +82,6 @@ class AudioPlayViewController: UIViewController, AudioPlayerDelegate {
         
         updateModeButtons()
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -157,12 +143,6 @@ class AudioPlayViewController: UIViewController, AudioPlayerDelegate {
     }
     
     private func updateModeButtons() {
-        if player.mode.contains(.Shuffle) {
-            shuffleButton.selected = true
-        } else {
-            shuffleButton.selected = false
-        }
-        
         if player.mode.contains(.RepeatAll) {
             repeatModeButton.setImage(repeatAllImage, forState: .Normal)
             repeatModeButton.selected = true
@@ -181,13 +161,6 @@ class AudioPlayViewController: UIViewController, AudioPlayerDelegate {
         progressSlider.value = 0
         currentLabel.text = "00:00"
         totalLabel.text  = "00:00"
-        /*
-        if let duration = feedItem.duration {
-            totalLabel.text = stringFromTimeInterval(NSTimeInterval(duration))
-        } else {
-            totalLabel.text = stringFromTimeInterval(0)
-        }
- */
     }
     
     func audioPlayer(audioPlayer: AudioPlayer, didUpdateProgressionToTime time: NSTimeInterval, percentageRead: Float) {

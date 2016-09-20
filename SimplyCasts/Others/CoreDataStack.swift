@@ -25,14 +25,14 @@ struct CoreDataStack {
         
         // Assumes the model is in the main bundle
         guard let modelURL = NSBundle.mainBundle().URLForResource(modelName, withExtension: "momd") else {
-            print("Unable to find \(modelName)in the main bundle")
+            Logger.log.error("Unable to find \(modelName)in the main bundle")
             return nil}
         
         self.modelURL = modelURL
         
         // Try to create the model from the URL
         guard let model = NSManagedObjectModel(contentsOfURL: modelURL) else{
-            print("unable to create a model from \(modelURL)")
+            Logger.log.error("unable to create a model from \(modelURL)")
             return nil
         }
         self.model = model
@@ -59,7 +59,7 @@ struct CoreDataStack {
         let fm = NSFileManager.defaultManager()
         
         guard let  docUrl = fm.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first else{
-            print("Unable to reach the documents folder")
+            Logger.log.error("Unable to reach the documents folder")
             return nil
         }
         
@@ -70,7 +70,7 @@ struct CoreDataStack {
             try addStoreCoordinator(NSSQLiteStoreType, configuration: nil, storeURL: dbURL, options: nil)
             
         }catch{
-            print("unable to add store at \(dbURL)")
+            Logger.log.error("unable to add store at \(self.dbURL)")
         }
         
         
@@ -163,7 +163,7 @@ extension CoreDataStack {
     func autoSave(delayInSeconds : Int){
         
         if delayInSeconds > 0 {
-            print("Autosaving")
+            Logger.log.info("Autosaving")
             save()
             
             let delayInNanoSeconds = UInt64(delayInSeconds) * NSEC_PER_SEC

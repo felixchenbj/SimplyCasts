@@ -27,10 +27,6 @@ class MiniPlayerToolbar: UIView, AudioPlayerDelegate {
     @IBOutlet weak var feedItemTitle: UILabel!
     @IBOutlet weak var playButton: RoundButton!
     
-    @IBOutlet weak var shuffleButton: RoundButton!
-    @IBOutlet weak var repeatModeButton: RoundButton!
-    
-    
     @IBAction func previous(sender: AnyObject) {
         player.previous()
         updateUI()
@@ -61,31 +57,6 @@ class MiniPlayerToolbar: UIView, AudioPlayerDelegate {
         updateUI()
     }
     
-    @IBAction func shuffleButtonPressed(sender: AnyObject) {
-        if player.mode.contains(.Shuffle) {
-            player.mode.remove(.Shuffle)
-        } else {
-            player.mode.insert(.Shuffle)
-        }
-        
-        player.rebuildItemList()
-        
-        updateUI()
-    }
-    
-    @IBAction func repeatButtonPressed(sender: AnyObject) {
-        if player.mode.contains(.RepeatAll) {
-            player.mode.remove(.RepeatAll)
-            player.mode.insert(.Repeat)
-        } else if player.mode.contains(.Repeat) {
-            player.mode.remove(.Repeat)
-        } else {
-            player.mode.insert(.RepeatAll)
-        }
-        
-        updateModeButtons()
-    }
-    
     // MUST be called before use the miniplayer
     func setupMiniPlayer() {
         updateUI()
@@ -104,7 +75,6 @@ class MiniPlayerToolbar: UIView, AudioPlayerDelegate {
             }
         }
         updatePlayButton()
-        updateModeButtons()
         
         if let currentProgression = player.currentItemProgression, duration = player.currentItemDuration {
             progressView.progress = Float(currentProgression / duration)
@@ -140,28 +110,7 @@ class MiniPlayerToolbar: UIView, AudioPlayerDelegate {
             playButton.setImage(playImage, forState: .Normal)
         }
     }
-    
-    
-    private func updateModeButtons() {
-        if player.mode.contains(.Shuffle) {
-            shuffleButton.selected = true
-        } else {
-            shuffleButton.selected = false
-        }
-        
-        if player.mode.contains(.RepeatAll) {
-            repeatModeButton.setImage(repeatAllImage, forState: .Normal)
-            repeatModeButton.selected = true
-        } else if player.mode.contains(.Repeat) {
-            repeatModeButton.setImage(repeatImage, forState: .Normal)
-            repeatModeButton.selected = true
-        } else {
-            repeatModeButton.setImage(repeatAllImage, forState: .Normal)
-            repeatModeButton.selected = false
-        }
-    }
 
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         view = loadViewFromNib()
