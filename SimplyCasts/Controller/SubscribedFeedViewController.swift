@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import KDEAudioPlayer
 
 class SubscribedFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, MiniPlayerToolbarDelegate {
 
@@ -94,6 +95,12 @@ class SubscribedFeedViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
         let refresh = UITableViewRowAction(style: .Normal, title: "Refresh") { action, index in
+            let reachability = Reachability.reachabilityForInternetConnection()
+            guard reachability.isReachable() else {
+                FunctionsHelper.popupAnOKAlert(self, title: "Network", message: "Network connection is not available!", handler: nil)
+                return
+            }
+            
             FunctionsHelper.performUIUpdatesOnMain({ 
                 tableView.editing = false
                 self.activityIndicator.startAnimating()

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import KDEAudioPlayer
 
 class AddFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
@@ -98,6 +99,12 @@ class AddFeedViewController: UIViewController, UITableViewDelegate, UITableViewD
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         
+        let reachability = Reachability.reachabilityForInternetConnection()
+        if !reachability.isReachable() {
+            FunctionsHelper.popupAnOKAlert(self, title: "Network", message: "Network connection is not available!", handler: nil)
+            return
+        }
+        
         if !searchBar.text!.isEmpty {
             activityIndicator.startAnimating()
             FeedHelper.searchFeed(searchBar.text!) { (info, results, success) in
@@ -106,7 +113,7 @@ class AddFeedViewController: UIViewController, UITableViewDelegate, UITableViewD
                         if let results = results {
                             self.searchResults.removeAll()
                             
-                            Logger.log.debug("Found \(results.count) podcast.")
+                            Logger.log.debug("Found \(results.count) podcasts.")
                             self.searchResults = results
                             
                             if results.count == 0 {

@@ -170,6 +170,12 @@ class AudioPlayViewController: UIViewController, AudioPlayerDelegate {
     
     func audioPlayer(audioPlayer: AudioPlayer, didChangeStateFrom from: AudioPlayerState, toState to: AudioPlayerState) {
         Logger.log.debug("from \(from) to \(to)")
+        let reachability = Reachability.reachabilityForInternetConnection()
+        if to == .Stopped {
+            if !reachability.isReachable() {
+                FunctionsHelper.popupAnOKAlert(self, title: "Network", message: "Network connection is not available!", handler: nil)
+            }
+        }
         updatePlayButton()
     }
     
